@@ -1,0 +1,6292 @@
+:root {
+  --lear-rail: 0px;
+  --lear-bg: #030304;
+  --lear-panel: #101014;
+  --lear-panel-2: #17171c;
+  --lear-line: rgba(255, 255, 255, 0.09);
+  --lear-text: #f7f7f8;
+  --lear-muted: rgba(255, 255, 255, 0.58);
+  --lear-pink: #f372ba;
+  --lear-violet: #8c4dff;
+  --lear-blue: #49d8ff;
+}
+
+/* Pure image wall: same grid rhythm as performers, imagery only. */
+html.lear-cinema.lear-page-library-list.lear-page-galleries
+  .sidebar-pane-content
+  > .row.justify-content-center {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+html.lear-cinema.lear-page-library-list.lear-page-galleries .image-card {
+  aspect-ratio: 4 / 5 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid var(--lear-line) !important;
+  border-radius: 19px !important;
+  background: #0a0a0d !important;
+}
+
+html.lear-cinema.lear-page-library-list.lear-page-galleries .image-card .thumbnail-section,
+html.lear-cinema.lear-page-library-list.lear-page-galleries .image-card .image-card-link,
+html.lear-cinema.lear-page-library-list.lear-page-galleries .image-card .image-card-preview {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: auto !important;
+  overflow: hidden !important;
+  border-radius: inherit !important;
+}
+
+html.lear-cinema.lear-page-library-list.lear-page-galleries .image-card .image-card-preview-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+html.lear-cinema.lear-page-library-list.lear-page-galleries
+  .image-card
+  :is(.card-controls, .card-section, .card-popovers, .preview-button, hr) {
+  display: none !important;
+}
+
+@media (max-width: 1500px) {
+  html.lear-cinema.lear-page-library-list.lear-page-galleries
+    .sidebar-pane-content
+    > .row.justify-content-center {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 1100px) {
+  html.lear-cinema.lear-page-library-list.lear-page-galleries
+    .sidebar-pane-content
+    > .row.justify-content-center {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 760px) {
+  html.lear-cinema.lear-page-library-list.lear-page-galleries
+    .sidebar-pane-content
+    > .row.justify-content-center {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+}
+
+html.lear-cinema,
+html.lear-cinema body {
+  min-height: 100%;
+  padding-top: 0 !important;
+  background: var(--lear-bg) !important;
+  color: var(--lear-text);
+  font-family:
+    Inter, "SF Pro Display", "Segoe UI Variable", "Segoe UI", sans-serif;
+}
+
+html.lear-cinema * {
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+html.lear-cinema a {
+  color: inherit;
+}
+
+/* Reference-style left navigation rail */
+html.lear-cinema .top-nav.navbar {
+  position: fixed;
+  z-index: 1050;
+  inset: 0 auto auto 0;
+  display: block;
+  width: 0;
+  height: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent !important;
+  box-shadow: none;
+  overflow: visible;
+}
+
+html.lear-cinema .top-nav .navbar-brand,
+html.lear-cinema .top-nav .navbar-collapse {
+  display: none !important;
+}
+
+/* Keep useful utility actions in a compact pill at the top right. */
+html.lear-cinema .top-nav .navbar-buttons {
+  position: fixed;
+  z-index: 1060;
+  top: 22px;
+  right: 24px;
+  order: 3;
+  display: flex;
+  width: 48px !important;
+  min-width: 48px;
+  max-width: 48px;
+  height: 48px;
+  margin: 0 !important;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(12, 12, 17, 0.45);
+  backdrop-filter: blur(22px) saturate(145%);
+}
+
+html.lear-cinema .top-nav .navbar-buttons > a[href="/settings"] {
+  width: 38px !important;
+  min-width: 38px !important;
+  max-width: 38px !important;
+  padding: 0 !important;
+  flex: 0 0 38px;
+}
+
+html.lear-cinema .top-nav .navbar-buttons .nav-menu-toggle {
+  display: none;
+}
+
+html.lear-cinema .top-nav .navbar-buttons .btn,
+html.lear-cinema .top-nav .navbar-buttons .nav-utility {
+  display: grid;
+  min-width: 38px;
+  height: 38px;
+  margin: 0 !important;
+  padding: 0 11px !important;
+  place-items: center;
+  border: 0 !important;
+  border-radius: 999px !important;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.lear-cinema .top-nav .navbar-buttons .mr-2 {
+  margin: 0 !important;
+}
+
+html.lear-cinema .top-nav .navbar-buttons .mr-2:first-child .btn {
+  background: #fff !important;
+  color: #0b0b0d;
+}
+
+html.lear-cinema .top-nav .navbar-buttons .nav-link[href*="opencollective"] {
+  display: none;
+}
+
+html.lear-cinema .top-nav .navbar-buttons > .mr-2.dropdown,
+html.lear-cinema .top-nav .navbar-buttons > .mr-2:first-child,
+html.lear-cinema .top-nav .navbar-buttons > a[href="/stats"],
+html.lear-cinema .top-nav .navbar-buttons > button.nav-utility {
+  display: none !important;
+}
+
+/* Centered translucent capsule from the reference */
+html.lear-cinema .lear-top-pill {
+  position: fixed;
+  z-index: 1070;
+  top: 22px;
+  left: calc(50% + (var(--lear-rail) / 2));
+  display: flex;
+  width: 360px;
+  height: 48px;
+  padding: 4px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(11, 11, 16, 0.46);
+  box-shadow: 0 16px 55px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(22px) saturate(145%);
+  transform: translateX(-50%);
+  transition:
+    opacity 180ms ease,
+    transform 220ms ease;
+}
+
+html.lear-cinema .lear-top-pill.lear-top-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -82px);
+}
+
+html.lear-cinema .lear-top-pill a[href="/groups"] {
+  display: none !important;
+}
+
+html.lear-cinema .lear-top-pill a,
+html.lear-cinema .lear-top-pill button {
+  display: flex;
+  height: 38px;
+  padding: 0 23px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  background: transparent;
+  font-size: 0.82rem;
+  line-height: 38px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+html.lear-cinema .lear-top-pill a.active {
+  color: #0a0a0d;
+  background: #fff;
+  font-weight: 720;
+}
+
+html.lear-cinema .lear-top-pill a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+html.lear-cinema .lear-top-pill .lear-top-search {
+  display: grid;
+  width: 38px;
+  padding: 0;
+  place-items: center;
+}
+
+html.lear-cinema .lear-top-pill svg {
+  width: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+/* Centered full-screen search instead of the clipped filter drawer. */
+html.lear-cinema .lear-search-overlay {
+  position: fixed;
+  z-index: 2400;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+html.lear-cinema .lear-search-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+html.lear-cinema .lear-search-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: rgba(3, 3, 6, 0.48);
+  backdrop-filter: blur(22px) saturate(75%);
+}
+
+html.lear-cinema .lear-search-dialog {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(680px, calc(100vw - 40px));
+  min-height: 70px;
+  padding: 8px 10px 8px 22px;
+  align-items: center;
+  grid-template-columns: 24px minmax(0, 1fr) 42px;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  background: rgba(18, 18, 24, 0.9);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.58);
+  backdrop-filter: blur(26px) saturate(140%);
+  transform: translateY(12px) scale(0.98);
+  transition: transform 180ms ease;
+}
+
+html.lear-cinema .lear-search-overlay.active .lear-search-dialog {
+  transform: translateY(0) scale(1);
+}
+
+html.lear-cinema .lear-search-dialog svg {
+  width: 21px;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.62);
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+html.lear-cinema .lear-search-input {
+  width: 100%;
+  height: 52px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  background: transparent;
+  box-shadow: none;
+  font: inherit;
+  font-size: 1.08rem;
+}
+
+html.lear-cinema .lear-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+html.lear-cinema .lear-search-submit {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #de65c0, #8a46ef);
+  box-shadow: 0 8px 24px rgba(187, 74, 226, 0.28);
+  cursor: pointer;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+html.lear-cinema.lear-search-open {
+  overflow: hidden;
+}
+
+/* Full-bleed page shell */
+html.lear-cinema .main.container-fluid {
+  box-sizing: border-box;
+  width: calc(100% - var(--lear-rail));
+  margin-left: var(--lear-rail);
+  padding: 0 0 64px;
+}
+
+html.lear-cinema .item-list-container.scene-list {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* True hero, independent from the library grid */
+html.lear-cinema .lear-cinema-hero {
+  position: relative;
+  width: 100%;
+  height: clamp(620px, 76vh, 820px);
+  min-height: 620px;
+  overflow: hidden;
+  background: #060609;
+}
+
+html.lear-cinema .lear-hero-background {
+  position: absolute;
+  inset: 0;
+}
+
+html.lear-cinema .lear-hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 34%;
+  transform: scale(1.01);
+}
+
+html.lear-cinema .lear-cinema-hero::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(3, 3, 5, 0.98) 0%, rgba(3, 3, 5, 0.76) 22%, rgba(3, 3, 5, 0.16) 60%, rgba(3, 3, 5, 0.06) 100%),
+    linear-gradient(0deg, #030304 0%, rgba(3, 3, 4, 0.92) 7%, rgba(3, 3, 4, 0.12) 46%, rgba(3, 3, 4, 0.08) 100%);
+}
+
+html.lear-cinema .lear-hero-content {
+  position: absolute;
+  z-index: 3;
+  top: 25%;
+  left: clamp(72px, 10vw, 190px);
+  width: min(610px, 42vw);
+}
+
+html.lear-cinema .lear-hero-kicker {
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.75rem;
+  font-weight: 720;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+html.lear-cinema .lear-hero-content h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(3rem, 3.6vw, 4rem);
+  font-weight: 780;
+  line-height: 1.12;
+  letter-spacing: 0.006em;
+  text-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+html.lear-cinema .lear-hero-content h1 a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+html.lear-cinema .lear-hero-meta {
+  margin-top: 18px;
+  color: var(--lear-muted);
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+}
+
+html.lear-cinema .lear-hero-content p {
+  display: -webkit-box;
+  max-width: 520px;
+  margin: 18px 0 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+html.lear-cinema .lear-hero-actions {
+  display: flex;
+  margin-top: 24px;
+  gap: 10px;
+}
+
+html.lear-cinema .lear-hero-actions a {
+  display: inline-flex;
+  height: 46px;
+  padding: 0 19px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 720;
+}
+
+html.lear-cinema .lear-play-button {
+  border: 0 !important;
+  background: linear-gradient(120deg, var(--lear-pink), var(--lear-violet));
+  box-shadow: 0 12px 32px rgba(153, 70, 232, 0.28);
+}
+
+html.lear-cinema .lear-detail-button {
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(12px);
+}
+
+html.lear-cinema .lear-hero-actions a:hover {
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+html.lear-cinema .lear-hero-thumbnails {
+  position: absolute;
+  z-index: 3;
+  bottom: 50px;
+  left: clamp(72px, 10vw, 190px);
+  display: flex;
+  gap: 9px;
+}
+
+html.lear-cinema .lear-hero-thumbnails a,
+html.lear-cinema .lear-hero-thumbnails button {
+  position: relative;
+  display: block;
+  width: 78px;
+  height: 45px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  color: inherit;
+  background: #09090c;
+  opacity: 0.52;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+html.lear-cinema .lear-hero-thumbnails a.active,
+html.lear-cinema .lear-hero-thumbnails a:hover,
+html.lear-cinema .lear-hero-thumbnails button.active,
+html.lear-cinema .lear-hero-thumbnails button:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+html.lear-cinema .lear-hero-thumbnails a.active::after,
+html.lear-cinema .lear-hero-thumbnails button.active::after {
+  position: absolute;
+  right: 9px;
+  bottom: 0;
+  left: 9px;
+  height: 3px;
+  border-radius: 999px;
+  content: "";
+  background: linear-gradient(90deg, var(--lear-pink), var(--lear-violet));
+}
+
+html.lear-cinema .lear-hero-thumbnails img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Library area */
+html.lear-cinema .scene-list .sidebar-pane {
+  position: relative;
+  display: block;
+  padding: 0 clamp(28px, 3.2vw, 58px);
+}
+
+html.lear-cinema .scene-list .sidebar-pane-content {
+  display: grid;
+  width: 100%;
+  margin-left: 0 !important;
+  padding: 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 16px;
+}
+
+html.lear-cinema .scene-list .sidebar {
+  position: fixed;
+  z-index: 1100;
+  top: 86px;
+  left: calc(var(--lear-rail) + 18px);
+  display: block !important;
+  width: 270px;
+  min-width: 270px;
+  max-height: calc(100vh - 112px);
+  padding: 15px;
+  overflow-y: auto;
+  border: 1px solid var(--lear-line);
+  border-radius: 22px;
+  background: rgba(13, 13, 18, 0.94);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.58);
+  opacity: 0;
+  pointer-events: none;
+  backdrop-filter: blur(22px);
+  transform: translateX(-24px);
+  transition: opacity 170ms ease, transform 170ms ease;
+}
+
+html.lear-cinema .scene-list .sidebar,
+html.lear-cinema .scene-list.lear-filter-open .sidebar {
+  display: none !important;
+}
+
+html.lear-cinema .item-list-container .sidebar,
+html.lear-cinema .item-list-container .sidebar-toggle-button-container {
+  display: none !important;
+}
+
+html.lear-cinema .scene-list.lear-filter-open .sidebar {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+html.lear-cinema .scene-list .sidebar .form-control,
+html.lear-cinema .scene-list .sidebar .btn {
+  border-color: var(--lear-line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+html.lear-cinema .scene-list .sidebar-toggle-button-container {
+  display: none;
+}
+
+html.lear-cinema .lear-library-head {
+  display: flex;
+  min-height: 120px;
+  padding: 45px 0 18px;
+  align-items: center;
+  justify-content: space-between;
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+
+html.lear-cinema .lear-library-head h2 {
+  margin: 4px 0 0;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 760;
+  letter-spacing: -0.035em;
+}
+
+html.lear-cinema .lear-section-kicker {
+  color: var(--lear-pink);
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+html.lear-cinema .lear-library-actions button {
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--lear-line);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.055);
+  font-size: 0.78rem;
+}
+
+html.lear-cinema .scene-list .filtered-list-toolbar {
+  width: max-content;
+  max-width: 100%;
+  min-height: 48px;
+  margin: 34px 0 0;
+  padding: 5px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  grid-column: 1;
+  grid-row: 3;
+  border: 1px solid var(--lear-line);
+  border-radius: 16px;
+  background: rgba(17, 17, 22, 0.86) !important;
+  backdrop-filter: blur(16px);
+}
+
+html.lear-cinema .scene-list .filtered-list-toolbar .btn,
+html.lear-cinema .scene-list .filtered-list-toolbar .form-control {
+  min-height: 38px;
+  border-color: transparent !important;
+  border-radius: 999px !important;
+  color: rgba(255, 255, 255, 0.76);
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+html.lear-cinema .scene-list .filtered-list-toolbar > :nth-child(2),
+html.lear-cinema .scene-list .filtered-list-toolbar > :nth-child(4),
+html.lear-cinema .scene-list .filtered-list-toolbar > :nth-child(5),
+html.lear-cinema .scene-list .filtered-list-toolbar > :nth-child(7) {
+  display: none !important;
+}
+
+html.lear-cinema .scene-list .filtered-list-toolbar > :nth-child(6) button:not(.active) {
+  display: none !important;
+}
+
+html.lear-cinema .scene-list .filtered-list-toolbar .search-term-input {
+  display: flex !important;
+  width: clamp(210px, 22vw, 330px);
+}
+
+html.lear-cinema .scene-list .pagination-index-container {
+  display: none;
+}
+
+html.lear-cinema .item-list-container .pagination-footer-container {
+  display: none !important;
+}
+
+html.lear-cinema .lear-header-pagination {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  gap: 2px;
+  border: 0;
+  background: transparent;
+  box-shadow: none !important;
+}
+
+html.lear-cinema .lear-header-pagination[hidden] {
+  display: none !important;
+}
+
+html.lear-cinema .lear-header-pagination button {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.72);
+  background: transparent !important;
+  box-shadow: none !important;
+  font: inherit;
+  cursor: pointer;
+}
+
+html.lear-cinema .lear-header-pagination button:hover:not(:disabled) {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.lear-cinema .lear-header-pagination button:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+html.lear-cinema .lear-header-pagination .lear-page-count {
+  width: auto;
+  min-width: 126px;
+  padding: 0 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.82rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+/* Five-column landscape card grid, matching the reference density. */
+html.lear-cinema .scene-list .sidebar-pane-content > .row.justify-content-center {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+  justify-content: initial !important;
+  margin: 0;
+  grid-column: 1 / -1;
+  grid-row: 2;
+}
+
+html.lear-cinema .scene-list .scene-card {
+  position: relative;
+  width: auto !important;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 1px solid var(--lear-line);
+  border-radius: 18px;
+  background: var(--lear-panel) !important;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.2);
+  transition: transform 170ms ease, border-color 170ms ease, box-shadow 170ms ease;
+}
+
+html.lear-cinema .scene-list .scene-card.lear-source-card {
+  display: none;
+}
+
+html.lear-cinema .scene-list .scene-card:hover {
+  z-index: 3;
+  border-color: rgba(243, 114, 186, 0.42);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.48);
+  transform: translateY(-5px);
+}
+
+html.lear-cinema .scene-card .scene-card-preview {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #08080b;
+}
+
+html.lear-cinema .scene-card .video-section {
+  position: relative;
+  width: 100%;
+}
+
+html.lear-cinema .scene-card .scene-card-preview-image,
+html.lear-cinema .scene-card .scene-card-preview-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+html.lear-cinema .scene-card .scene-specs-overlay {
+  z-index: 8;
+  right: 9px;
+  bottom: 10px;
+  padding: 0;
+  border-radius: 0;
+  color: rgba(255, 255, 255, 0.58);
+  background: transparent;
+  box-shadow: none;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.15;
+  backdrop-filter: none;
+}
+
+html.lear-cinema .scene-card .studio-overlay {
+  top: 9px;
+  left: 9px;
+}
+
+html.lear-cinema .scene-card .card-section {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 0;
+  padding: 34px 92px 10px 11px;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    rgba(5, 5, 8, 0.9) 0%,
+    rgba(5, 5, 8, 0.52) 56%,
+    transparent 100%
+  ) !important;
+}
+
+html.lear-cinema .scene-card .card-section-title {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 680;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  background: transparent;
+}
+
+html.lear-cinema .scene-card .card-section > a {
+  display: block;
+  line-height: 0;
+}
+
+html.lear-cinema .scene-card .card-section-title .TruncatedText {
+  display: -webkit-box;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2 !important;
+}
+
+html.lear-cinema .scene-card .scene-card__details {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin: 2px 0 0 !important;
+  padding: 0;
+  border-radius: 0;
+  color: rgba(255, 255, 255, 0.58);
+  background: transparent;
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.15;
+  backdrop-filter: none;
+}
+
+html.lear-cinema .scene-card .progress-bar {
+  position: absolute !important;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100% !important;
+  height: 2px !important;
+  margin: 0 !important;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+html.lear-cinema .scene-card .progress-indicator {
+  height: 100% !important;
+  border-radius: 0;
+  background: linear-gradient(90deg, var(--lear-pink), var(--lear-violet));
+}
+
+html.lear-cinema .scene-card .scene-card__description,
+html.lear-cinema .scene-card .file-path {
+  display: none !important;
+}
+
+html.lear-cinema .scene-card hr {
+  display: none;
+}
+
+html.lear-cinema .scene-card .card-popovers {
+  display: none !important;
+}
+
+html.lear-cinema .scene-card .card-controls {
+  display: none !important;
+}
+
+/* Shared visual language for library list pages */
+html.lear-cinema.lear-page-library-list .main.container-fluid {
+  padding: 102px clamp(24px, 3.2vw, 58px) 72px;
+}
+
+html.lear-cinema.lear-page-library-list .item-list-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+html.lear-cinema.lear-page-library-list .sidebar-pane {
+  display: block;
+  padding: 0;
+}
+
+html.lear-cinema.lear-page-library-list .sidebar-pane-content {
+  width: 100%;
+  margin-left: 0 !important;
+  padding: 0;
+}
+
+html.lear-cinema.lear-page-library-list .sidebar {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-library-list .lear-library-head {
+  min-height: 82px;
+  padding: 6px 0 18px;
+}
+
+html.lear-cinema.lear-page-scenes .filtered-list-toolbar,
+html.lear-cinema.lear-page-library-list .filtered-list-toolbar,
+html.lear-cinema.lear-page-library-list .pagination-index-container,
+html.lear-cinema.lear-page-library-list .pagination-footer-container {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-library-list
+  .sidebar-pane-content
+  > .row.justify-content-center {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+  justify-content: initial !important;
+  margin: 0;
+}
+
+html.lear-cinema.lear-page-library-list .grid-card.card {
+  position: relative;
+  width: auto !important;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 1px solid var(--lear-line);
+  border-radius: 19px;
+  background: linear-gradient(180deg, #15151a, #0e0e12) !important;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 170ms ease,
+    border-color 170ms ease,
+    box-shadow 170ms ease;
+}
+
+html.lear-cinema.lear-page-library-list .grid-card.card:hover {
+  border-color: rgba(243, 114, 186, 0.4);
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.48);
+  transform: translateY(-5px);
+}
+
+html.lear-cinema.lear-page-library-list .grid-card .thumbnail-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #09090c;
+}
+
+html.lear-cinema.lear-page-performers .performer-card .thumbnail-section {
+  aspect-ratio: 4 / 5;
+}
+
+html.lear-cinema.lear-page-studios .studio-card .thumbnail-section,
+html.lear-cinema.lear-page-groups .group-card .thumbnail-section {
+  aspect-ratio: 16 / 10;
+}
+
+html.lear-cinema.lear-page-library-list .grid-card .thumbnail-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 240ms ease;
+}
+
+html.lear-cinema.lear-page-library-list .grid-card .card-controls {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-library-list .grid-card .lear-card-count {
+  position: absolute;
+  z-index: 7;
+  top: 9px;
+  left: 9px;
+  min-width: 42px;
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(7, 7, 10, 0.68);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  font-size: 0.68rem;
+  font-weight: 680;
+  line-height: 1;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+html.lear-cinema.lear-page-performers .performer-card {
+  height: auto !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-performers .performer-card .card-section {
+  position: absolute;
+  z-index: 4;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 0;
+  padding: 36px 11px 11px;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    rgba(5, 5, 8, 0.92) 0%,
+    rgba(5, 5, 8, 0.5) 58%,
+    transparent 100%
+  ) !important;
+}
+
+html.lear-cinema.lear-page-performers .performer-card hr,
+html.lear-cinema.lear-page-performers .performer-card .card-popovers {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-performers .performer-card .card-section-title {
+  font-size: 0.86rem;
+  font-weight: 680;
+  line-height: 1.1;
+}
+
+html.lear-cinema.lear-page-performers .performer-card .performer-card__age {
+  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+html.lear-cinema.lear-page-studios .studio-card .thumbnail-section {
+  background: #0a0a0d;
+}
+
+html.lear-cinema.lear-page-studios .studio-card .studio-card-header {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding: 14px;
+  place-items: center;
+}
+
+html.lear-cinema.lear-page-studios
+  .studio-card
+  .thumbnail-section
+  .studio-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+html.lear-cinema.lear-page-studios .studio-card .card-section {
+  position: absolute;
+  z-index: 4;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 0;
+  padding: 42px 11px 11px;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    rgba(5, 5, 8, 0.95) 0%,
+    rgba(5, 5, 8, 0.64) 58%,
+    transparent 100%
+  ) !important;
+}
+
+html.lear-cinema.lear-page-studios .studio-card hr,
+html.lear-cinema.lear-page-studios .studio-card .card-popovers {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-studios .studio-card .studio-card__details {
+  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+html.lear-cinema.lear-page-library-list .grid-card:hover .thumbnail-section img {
+  transform: scale(1.035);
+}
+
+html.lear-cinema.lear-page-library-list .grid-card .card-section {
+  min-height: 66px;
+  padding: 13px 14px 10px;
+  color: rgba(255, 255, 255, 0.68);
+  background: transparent;
+}
+
+html.lear-cinema.lear-page-library-list .grid-card .card-section-title {
+  margin: 0;
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 680;
+  line-height: 1.15;
+}
+
+html.lear-cinema.lear-page-library-list .grid-card hr {
+  margin: 0;
+  border-color: rgba(255, 255, 255, 0.055);
+}
+
+html.lear-cinema.lear-page-library-list .grid-card .card-popovers {
+  min-height: 38px;
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.018);
+}
+
+html.lear-cinema.lear-page-library-list .grid-card .card-popovers .btn {
+  color: rgba(255, 255, 255, 0.62);
+  background: transparent !important;
+}
+
+html.lear-cinema.lear-page-library-list .grid-card .favorite-button {
+  color: var(--lear-pink);
+}
+
+/* Performer, group, and studio detail pages */
+html.lear-cinema.lear-page-entity-detail .main.container-fluid {
+  padding: 102px clamp(24px, 3.2vw, 58px) 72px;
+}
+
+html.lear-cinema.lear-page-entity-detail .main > .row {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+html.lear-cinema.lear-page-entity-detail .detail-header {
+  margin: 0 0 24px;
+  padding: clamp(22px, 3vw, 38px);
+  border: 1px solid var(--lear-line);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 85% 0%, rgba(140, 77, 255, 0.16), transparent 38%),
+    linear-gradient(145deg, rgba(24, 24, 31, 0.98), rgba(12, 12, 16, 0.98));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+}
+
+html.lear-cinema.lear-page-entity-detail .detail-header img {
+  border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+html.lear-cinema.lear-page-entity-detail .detail-header h1,
+html.lear-cinema.lear-page-entity-detail .detail-header h2 {
+  color: #fff;
+  font-size: clamp(2rem, 3vw, 3.5rem);
+  font-weight: 780;
+  letter-spacing: -0.05em;
+}
+
+html.lear-cinema.lear-page-entity-detail .detail-body {
+  width: 100%;
+  padding: 0;
+}
+
+html.lear-cinema.lear-page-entity-detail .detail-body > .nav-tabs,
+html.lear-cinema.lear-page-entity-detail .detail-body .nav-tabs {
+  margin-bottom: 22px;
+  padding: 5px;
+  gap: 4px;
+  border: 1px solid var(--lear-line);
+  border-radius: 16px;
+  background: rgba(17, 17, 22, 0.86);
+}
+
+html.lear-cinema.lear-page-entity-detail .detail-body .nav-tabs .nav-link {
+  min-height: 38px;
+  padding: 0 15px;
+  border: 0 !important;
+  border-radius: 11px;
+  color: var(--lear-muted);
+}
+
+html.lear-cinema.lear-page-entity-detail .detail-body .nav-tabs .nav-link.active {
+  color: #fff;
+  background: linear-gradient(115deg, rgba(243, 114, 186, 0.8), rgba(140, 77, 255, 0.8));
+}
+
+html.lear-cinema.lear-page-entity-detail .detail-header .btn-primary:not(.minimal) {
+  border: 0;
+  border-radius: 11px;
+  background: linear-gradient(115deg, var(--lear-pink), var(--lear-violet)) !important;
+}
+
+html.lear-cinema.lear-page-entity-detail .detail-header .btn-secondary {
+  border: 1px solid var(--lear-line);
+  border-radius: 11px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+html.lear-cinema.lear-page-entity-detail .scene-list {
+  border-radius: 24px;
+  background: transparent !important;
+}
+
+/* Scene detail: same dark glass surfaces, with clear space below the capsule */
+html.lear-cinema.lear-page-scene-detail .main.container-fluid {
+  padding: 102px clamp(24px, 3.2vw, 58px) 72px;
+}
+
+html.lear-cinema.lear-page-scene-detail .main > .row {
+  display: grid;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  align-items: start;
+  grid-template-columns: minmax(340px, 0.82fr) minmax(0, 1.58fr);
+  gap: 28px;
+}
+
+html.lear-cinema.lear-page-scene-detail .scene-player-container {
+  position: sticky;
+  top: 92px;
+  grid-column: 2;
+  grid-row: 1;
+  order: initial !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  flex: none !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-scene-detail .VideoPlayer,
+html.lear-cinema.lear-page-scene-detail .video-wrapper,
+html.lear-cinema.lear-page-scene-detail video-js {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #07070a;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.46);
+}
+
+html.lear-cinema.lear-page-scene-detail .VideoPlayer {
+  display: block !important;
+  aspect-ratio: 16 / 9;
+}
+
+html.lear-cinema.lear-page-scene-detail .video-wrapper {
+  position: relative;
+}
+
+html.lear-cinema.lear-page-scene-detail .scene-tabs {
+  grid-column: 1;
+  grid-row: 1;
+  order: initial !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  height: auto !important;
+  flex: none !important;
+  padding: 14px 16px 22px;
+  border: 1px solid var(--lear-line);
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(24, 24, 31, 0.96), rgba(12, 12, 16, 0.96));
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.3);
+}
+
+html.lear-cinema.lear-page-scene-detail .scene-divider {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-scene-detail .lear-detail-cover {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  flex: none !important;
+  margin-bottom: 18px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9 !important;
+  border-radius: 16px;
+  background: #08080b;
+}
+
+html.lear-cinema.lear-page-scene-detail .lear-detail-cover img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+}
+
+/* Final scene-card polish: keep the playback progress inside the image. */
+html.lear-cinema .scene-list .scene-card .video-section.thumbnail-section {
+  height: auto !important;
+  overflow: hidden !important;
+  aspect-ratio: 16 / 9;
+}
+
+html.lear-cinema .scene-list .scene-card .scene-card-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+html.lear-cinema .scene-list .scene-card .scene-card-preview {
+  width: 100%;
+  height: 100% !important;
+  margin: 0 !important;
+  aspect-ratio: auto;
+}
+
+html.lear-cinema .scene-list .scene-card .hover-scrubber {
+  top: auto !important;
+  bottom: 0 !important;
+  height: 14px !important;
+}
+
+html.lear-cinema .scene-list .scene-card .hover-scrubber-indicator {
+  top: auto !important;
+  bottom: 0 !important;
+  height: 3px !important;
+}
+
+/* Entity details: keep only the useful edit action and the two useful tabs. */
+html.lear-cinema.lear-page-entity-detail
+  .detail-header
+  .details-edit
+  > *:not(.edit) {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .detail-body
+  [role="tab"][aria-controls$="-galleries"],
+html.lear-cinema.lear-page-entity-detail
+  .detail-body
+  [role="tab"][aria-controls$="-images"],
+html.lear-cinema.lear-page-entity-detail
+  .detail-body
+  [role="tab"][aria-controls$="-groups"] {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .detail-body
+  .filtered-list-toolbar {
+  display: none !important;
+}
+
+/* Align the header, tabs and media cards to one shared content edge. */
+html.lear-cinema.lear-page-entity-detail .detail-body {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  flex: 0 0 100% !important;
+}
+
+html.lear-cinema.lear-page-entity-detail .detail-body .nav-tabs {
+  min-height: 48px;
+  margin: 0 0 20px !important;
+  align-items: center;
+  justify-content: center;
+}
+
+html.lear-cinema.lear-page-entity-detail .detail-body .nav-tabs .nav-link {
+  display: inline-flex !important;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  line-height: 1;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .detail-body
+  .nav-tabs
+  .nav-link
+  .badge {
+  display: inline-flex;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+html.lear-cinema.lear-page-entity-detail .scene-list {
+  padding-top: 0 !important;
+}
+
+html.lear-cinema.lear-page-entity-detail .scene-list .sidebar-pane {
+  top: 0 !important;
+  bottom: auto !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .scene-list
+  .sidebar-pane-content {
+  padding: 0 !important;
+}
+
+/* Keep these rules after the generic nav-link display rule above. */
+html.lear-cinema.lear-page-entity-detail
+  .detail-body
+  [role="tab"][aria-controls$="-galleries"],
+html.lear-cinema.lear-page-entity-detail
+  .detail-body
+  [role="tab"][aria-controls$="-images"],
+html.lear-cinema.lear-page-entity-detail
+  .detail-body
+  [role="tab"][aria-controls$="-groups"] {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-scene-detail .scene-header {
+  margin: 4px 0 10px;
+  color: #fff;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  font-weight: 780;
+  letter-spacing: -0.045em;
+}
+
+html.lear-cinema.lear-page-scene-detail .nav-tabs {
+  height: 40px;
+  align-items: stretch;
+  gap: 4px;
+  border-bottom: 1px solid var(--lear-line);
+}
+
+html.lear-cinema.lear-page-scene-detail .nav-tabs .nav-link {
+  display: inline-flex;
+  height: 40px;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  line-height: 1;
+  border: 0 !important;
+  border-radius: 12px 12px 0 0;
+  color: var(--lear-muted);
+  background: transparent;
+}
+
+html.lear-cinema.lear-page-scene-detail .nav-tabs .nav-link.active {
+  color: #fff;
+  background: linear-gradient(120deg, rgba(243, 114, 186, 0.24), rgba(140, 77, 255, 0.24));
+  box-shadow: inset 0 -2px var(--lear-pink);
+}
+
+html.lear-cinema.lear-page-scene-detail .tab-content {
+  padding-top: 20px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+html.lear-cinema.lear-page-scene-detail .performer-card {
+  border: 1px solid var(--lear-line);
+  border-radius: 18px;
+  background: #111116 !important;
+}
+
+html.lear-cinema.lear-page-scene-detail .details-list,
+html.lear-cinema.lear-page-scene-detail .scene-file-info {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+/* Settings: compact left navigation and polished content panels */
+html.lear-cinema.lear-page-settings .main.container-fluid {
+  padding: 102px clamp(24px, 3.2vw, 58px) 72px;
+}
+
+html.lear-cinema.lear-page-settings .main > .row {
+  display: grid;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  grid-template-columns: minmax(176px, 196px) minmax(0, 1fr);
+  gap: 30px;
+}
+
+html.lear-cinema.lear-page-settings #settings-menu-container {
+  position: sticky !important;
+  top: 92px;
+  width: auto;
+  max-width: none;
+  height: max-content;
+  padding: 8px;
+  border: 1px solid var(--lear-line);
+  border-radius: 17px;
+  background: rgba(16, 16, 21, 0.78);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(22px);
+}
+
+html.lear-cinema.lear-page-settings #settings-menu-container .nav-link {
+  display: flex;
+  min-height: 35px;
+  margin: 1px 0;
+  padding: 0 11px;
+  align-items: center;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.88rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+html.lear-cinema.lear-page-settings #settings-menu-container .nav-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+html.lear-cinema.lear-page-settings #settings-menu-container .nav-link.active {
+  color: #111116;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+html.lear-cinema.lear-page-settings #settings-menu-container .advanced-switch {
+  margin: 8px 7px 0;
+  padding: 11px 3px 7px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+html.lear-cinema.lear-page-settings #settings-menu-container .advanced-switch .form-label {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+html.lear-cinema.lear-page-settings #settings-menu-container .troubleshooting-mode-button {
+  position: static !important;
+  margin: 4px 7px 1px;
+  width: auto;
+}
+
+html.lear-cinema.lear-page-settings #settings-menu-container .troubleshooting-mode-button .btn {
+  width: 100%;
+  min-height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.055) !important;
+  box-shadow: none;
+  font-size: 0.76rem;
+  font-weight: 650;
+}
+
+html.lear-cinema.lear-page-settings #settings-menu-container .troubleshooting-mode-button .btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.09) !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container {
+  width: auto;
+  max-width: none;
+  margin: 0 !important;
+  padding: 0;
+}
+
+html.lear-cinema.lear-page-settings #settings-container h1,
+html.lear-cinema.lear-page-settings #settings-container h2,
+html.lear-cinema.lear-page-settings #settings-container h3 {
+  color: #fff;
+  letter-spacing: -0.035em;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting-section,
+html.lear-cinema.lear-page-settings #settings-container .card {
+  margin-bottom: 18px;
+  overflow: hidden;
+  border: 1px solid var(--lear-line);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(24, 24, 31, 0.96), rgba(13, 13, 17, 0.96)) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting,
+html.lear-cinema.lear-page-settings #settings-container .card-header,
+html.lear-cinema.lear-page-settings #settings-container .card-body {
+  border-color: rgba(255, 255, 255, 0.07) !important;
+  background: transparent !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .form-control,
+html.lear-cinema.lear-page-settings #settings-container select,
+html.lear-cinema.lear-page-settings #settings-container textarea {
+  border: 1px solid var(--lear-line) !important;
+  border-radius: 12px !important;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.055) !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .btn-primary {
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(115deg, var(--lear-pink), var(--lear-violet)) !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel,
+html.lear-cinema.lear-page-settings .tasks-panel-queue {
+  overflow: hidden;
+  border: 1px solid var(--lear-line);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(24, 24, 31, 0.96), rgba(13, 13, 17, 0.96)) !important;
+}
+
+html.lear-cinema.lear-page-settings .tasks-panel-queue {
+  margin-bottom: 18px;
+  padding: 18px;
+}
+
+html.lear-cinema .modal-content,
+html.lear-cinema .dropdown-menu,
+html.lear-cinema .popover,
+html.lear-cinema .react-select__menu {
+  border: 1px solid var(--lear-line) !important;
+  border-radius: 16px !important;
+  background: #131318 !important;
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.52);
+}
+
+@media (max-width: 1450px) {
+  html.lear-cinema .scene-list .sidebar-pane-content > .row.justify-content-center {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  html.lear-cinema.lear-page-library-list
+    .sidebar-pane-content
+    > .row.justify-content-center {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  html.lear-cinema .lear-top-pill a {
+    padding: 0 14px;
+  }
+}
+
+@media (max-width: 1150px) {
+  :root {
+    --lear-rail: 0px;
+  }
+
+  html.lear-cinema .lear-top-pill {
+    left: 50%;
+  }
+
+  html.lear-cinema .lear-top-pill a {
+    padding: 0 11px;
+  }
+
+  html.lear-cinema .top-nav .navbar-buttons {
+    right: 12px;
+  }
+
+  html.lear-cinema .top-nav .navbar-buttons .nav-utility {
+    display: none;
+  }
+
+  html.lear-cinema .lear-cinema-hero {
+    height: 680px;
+  }
+
+  html.lear-cinema .lear-hero-content {
+    width: min(500px, 55vw);
+  }
+
+  html.lear-cinema .scene-list .sidebar-pane-content > .row.justify-content-center {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  html.lear-cinema.lear-page-library-list
+    .sidebar-pane-content
+    > .row.justify-content-center {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  html.lear-cinema.lear-page-scene-detail .main > .row {
+    grid-template-columns: 1fr;
+  }
+
+  html.lear-cinema.lear-page-scene-detail .scene-tabs {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  html.lear-cinema.lear-page-scene-detail .scene-player-container {
+    position: static;
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 820px) {
+  :root {
+    --lear-rail: 0px;
+  }
+
+  html.lear-cinema .top-nav.navbar {
+    inset: 0 auto auto 0;
+    width: 0;
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: transparent !important;
+    backdrop-filter: none;
+  }
+
+  html.lear-cinema .top-nav .navbar-brand,
+  html.lear-cinema .top-nav .navbar-collapse {
+    display: none !important;
+  }
+
+  html.lear-cinema .top-nav .navbar-buttons {
+    display: flex;
+  }
+
+  html.lear-cinema .top-nav .navbar-collapse {
+    flex-direction: row;
+  }
+
+  html.lear-cinema .top-nav .navbar-collapse > .navbar-nav:first-child {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+  }
+
+  html.lear-cinema .top-nav .navbar-collapse .nav-link > a {
+    width: 52px;
+    height: 48px;
+  }
+
+  html.lear-cinema .lear-top-pill {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+    justify-content: center;
+    transform: none;
+  }
+
+  html.lear-cinema .lear-top-pill.lear-top-hidden {
+    transform: translateY(-82px);
+  }
+
+  html.lear-cinema .lear-top-pill a {
+    padding: 0 10px;
+    font-size: 0.75rem;
+  }
+
+  html.lear-cinema .lear-cinema-hero {
+    height: 660px;
+    min-height: 660px;
+  }
+
+  html.lear-cinema .lear-cinema-hero::after {
+    background:
+      linear-gradient(0deg, #030304 0%, rgba(3, 3, 4, 0.86) 38%, rgba(3, 3, 4, 0.12) 100%);
+  }
+
+  html.lear-cinema .lear-hero-content {
+    top: auto;
+    right: 24px;
+    bottom: 120px;
+    left: 24px;
+    width: auto;
+  }
+
+  html.lear-cinema .lear-hero-thumbnails {
+    right: 24px;
+    bottom: 50px;
+    left: 24px;
+  }
+
+  html.lear-cinema .scene-list .sidebar-pane {
+    padding: 0 16px;
+  }
+
+  html.lear-cinema .scene-list .sidebar {
+    left: 14px;
+  }
+
+  html.lear-cinema .scene-list .sidebar-pane-content > .row.justify-content-center {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  html.lear-cinema.lear-page-library-list .main.container-fluid,
+  html.lear-cinema.lear-page-entity-detail .main.container-fluid,
+  html.lear-cinema.lear-page-scene-detail .main.container-fluid,
+  html.lear-cinema.lear-page-settings .main.container-fluid {
+    width: 100%;
+    margin-left: 0;
+    padding: 88px 16px 96px;
+  }
+
+  html.lear-cinema.lear-page-library-list
+    .sidebar-pane-content
+    > .row.justify-content-center {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  html.lear-cinema.lear-page-settings .main > .row {
+    grid-template-columns: 1fr;
+  }
+
+  html.lear-cinema.lear-page-settings #settings-menu-container {
+    position: static !important;
+  }
+}
+
+/* 2026-08-08: complete the cinema home instead of only recoloring Stash rows */
+html.lear-cinema.lear-page-home .main.container-fluid {
+  padding: 0 0 72px !important;
+  overflow: hidden !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container {
+  width: 100% !important;
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container > .lear-cinema-hero {
+  height: clamp(520px, 72vh, 760px);
+  min-height: 520px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+html.lear-cinema.lear-page-home .lear-hero-content {
+  top: 24%;
+  left: clamp(52px, 7vw, 138px);
+  width: min(620px, 46vw);
+}
+
+html.lear-cinema.lear-page-home .lear-hero-content h1 {
+  font-size: clamp(2.65rem, 4vw, 4.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+html.lear-cinema.lear-page-home .lear-hero-content h1 a {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+html.lear-cinema.lear-page-home .lear-hero-thumbnails {
+  left: clamp(52px, 7vw, 138px);
+  bottom: 44px;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container > div:first-of-type {
+  width: min(calc(100% - (2 * clamp(24px, 4vw, 72px))), 1900px) !important;
+  margin: 42px auto 0 !important;
+  padding: 0 !important;
+  container-name: lear-home-rail;
+  container-type: inline-size;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row {
+  position: relative;
+  margin: 0 0 44px !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row-head {
+  min-height: 44px;
+  padding: 0 2px 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 20px;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row-head h2,
+html.lear-cinema.lear-page-home .main .recommendation-row-head h2:not(:first-child) {
+  margin: 0 !important;
+  font-size: clamp(1.25rem, 1.35vw, 1.65rem) !important;
+  line-height: 1.15 !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row-head a,
+html.lear-cinema.lear-page-home .recommendation-row-head button {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.64) !important;
+  font-size: 0.88rem !important;
+  font-weight: 650;
+  text-decoration: none !important;
+  transition: color 150ms ease;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row-head a:hover,
+html.lear-cinema.lear-page-home .recommendation-row-head a:focus-visible,
+html.lear-cinema.lear-page-home .recommendation-row-head button:hover,
+html.lear-cinema.lear-page-home .recommendation-row-head button:focus-visible {
+  color: #fff !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-slider,
+html.lear-cinema.lear-page-home .recommendation-row .slick-list {
+  width: 100% !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-list {
+  margin: 0 !important;
+  overflow: hidden !important;
+  border-radius: 20px;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-track {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-slide {
+  float: none !important;
+  height: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-slide > div {
+  height: 100% !important;
+  padding: 0 8px !important;
+}
+
+html.lear-cinema.lear-page-home .scene-recommendations .slick-slide {
+  width: 100cqw !important;
+}
+
+html.lear-cinema.lear-page-home .studio-recommendations .slick-slide,
+html.lear-cinema.lear-page-home .performer-recommendations .slick-slide {
+  width: 50cqw !important;
+}
+
+@container lear-home-rail (min-width: 700px) {
+  html.lear-cinema.lear-page-home .scene-recommendations .slick-slide {
+    width: 50cqw !important;
+  }
+
+  html.lear-cinema.lear-page-home .studio-recommendations .slick-slide,
+  html.lear-cinema.lear-page-home .performer-recommendations .slick-slide {
+    width: 33.3333cqw !important;
+  }
+}
+
+@container lear-home-rail (min-width: 1050px) {
+  html.lear-cinema.lear-page-home .scene-recommendations .slick-slide {
+    width: 33.3333cqw !important;
+  }
+
+  html.lear-cinema.lear-page-home .studio-recommendations .slick-slide,
+  html.lear-cinema.lear-page-home .performer-recommendations .slick-slide {
+    width: 25cqw !important;
+  }
+}
+
+@container lear-home-rail (min-width: 1400px) {
+  html.lear-cinema.lear-page-home .scene-recommendations .slick-slide {
+    width: 25cqw !important;
+  }
+
+  html.lear-cinema.lear-page-home .studio-recommendations .slick-slide,
+  html.lear-cinema.lear-page-home .performer-recommendations .slick-slide {
+    width: 16.6667cqw !important;
+  }
+}
+
+@container lear-home-rail (min-width: 1750px) {
+  html.lear-cinema.lear-page-home .scene-recommendations .slick-slide {
+    width: 20cqw !important;
+  }
+
+  html.lear-cinema.lear-page-home .studio-recommendations .slick-slide,
+  html.lear-cinema.lear-page-home .performer-recommendations .slick-slide {
+    width: 14.2857cqw !important;
+  }
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-arrow {
+  position: absolute !important;
+  z-index: 12 !important;
+  top: 50% !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 50% !important;
+  color: transparent !important;
+  background: rgba(8, 8, 11, 0.78) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.34) !important;
+  backdrop-filter: blur(14px);
+  transform: translateY(-50%) !important;
+  transition: opacity 150ms ease, background 150ms ease, transform 150ms ease !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-prev {
+  left: 12px !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-next {
+  right: 12px !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-arrow::before {
+  display: block !important;
+  color: #fff !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 30px !important;
+  font-weight: 300 !important;
+  line-height: 40px !important;
+  opacity: 0.92 !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-prev::before {
+  content: "\2039" !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-next::before {
+  content: "\203a" !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-arrow:hover,
+html.lear-cinema.lear-page-home .recommendation-row .slick-arrow:focus-visible {
+  background: rgba(26, 24, 31, 0.94) !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-disabled {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row .slick-dots {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card,
+html.lear-cinema.lear-page-home .main .studio-card,
+html.lear-cinema.lear-page-home .main .performer-card {
+  position: relative !important;
+  height: auto !important;
+  min-height: 0 !important;
+  border-radius: 18px !important;
+  transition: transform 170ms ease, border-color 170ms ease, box-shadow 170ms ease !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card {
+  aspect-ratio: 16 / 9;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card {
+  aspect-ratio: 1.16 / 1;
+  display: block !important;
+  background: linear-gradient(145deg, #111219, #1b1d27) !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card .thumbnail-section {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  padding: 24px 24px 74px !important;
+  background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.055), transparent 62%) !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card .studio-card-image,
+html.lear-cinema.lear-page-home .main .studio-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card .card-section {
+  position: absolute !important;
+  z-index: 3 !important;
+  inset: auto 0 0 !important;
+  min-height: 76px !important;
+  padding: 26px 15px 13px !important;
+  justify-content: flex-end !important;
+  gap: 2px !important;
+  background: linear-gradient(180deg, transparent, rgba(5, 5, 7, 0.97)) !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card .card-section-title,
+html.lear-cinema.lear-page-home .main .performer-card .card-section-title {
+  margin: 0 !important;
+  color: #fff !important;
+  font-size: 0.94rem !important;
+  font-weight: 720 !important;
+  line-height: 1.15 !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card .text-muted,
+html.lear-cinema.lear-page-home .main .performer-card .text-muted {
+  color: rgba(255, 255, 255, 0.62) !important;
+  font-size: 0.8rem !important;
+  line-height: 1.2 !important;
+}
+
+html.lear-cinema.lear-page-home .main .performer-card {
+  aspect-ratio: 2 / 3;
+}
+
+html.lear-cinema.lear-page-home .main .performer-card .card-section {
+  min-height: 92px !important;
+  padding: 34px 15px 14px !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card:hover,
+html.lear-cinema.lear-page-home .main .studio-card:hover,
+html.lear-cinema.lear-page-home .main .performer-card:hover {
+  z-index: 3;
+  border-color: rgba(243, 114, 186, 0.48) !important;
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.38) !important;
+  transform: translateY(-4px) !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-footer {
+  width: min(calc(100% - (2 * clamp(24px, 4vw, 72px))), 1900px) !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 760px) {
+  html.lear-cinema.lear-page-home .recommendations-container > .lear-cinema-hero {
+    height: 540px;
+    min-height: 540px;
+  }
+
+  html.lear-cinema.lear-page-home .lear-hero-content {
+    top: 23%;
+    left: 24px;
+    width: calc(100% - 48px);
+  }
+
+  html.lear-cinema.lear-page-home .lear-hero-content p {
+    -webkit-line-clamp: 3;
+  }
+
+  html.lear-cinema.lear-page-home .lear-hero-thumbnails {
+    left: 24px;
+    bottom: 28px;
+  }
+
+  html.lear-cinema.lear-page-home .recommendations-container > div:first-of-type {
+    margin-top: 28px !important;
+  }
+
+  html.lear-cinema.lear-page-home .recommendation-row {
+    margin-bottom: 34px !important;
+  }
+}
+
+/* 2026-08-08: homepage recommendation editor */
+html.lear-cinema.lear-page-home .recommendations-container-edit {
+  width: min(1040px, calc(100% - 40px)) !important;
+  margin: 108px auto 72px !important;
+  padding: 26px !important;
+  border: 1px solid var(--lear-line) !important;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(140, 77, 255, 0.11), transparent 34%),
+    rgba(16, 16, 20, 0.94) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34) !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit > div:first-child {
+  display: grid !important;
+  gap: 11px !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit > div:first-child > div[draggable="true"] {
+  position: relative;
+  cursor: grab;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit > div:first-child > div[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendation-row {
+  min-height: 66px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.075) !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  box-shadow: none !important;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit > div:first-child > div[draggable="true"]:hover .recommendation-row {
+  border-color: rgba(243, 114, 186, 0.34) !important;
+  background: rgba(255, 255, 255, 0.055) !important;
+  transform: translateY(-1px);
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendation-row-head {
+  min-height: 66px !important;
+  padding: 12px 14px 12px 20px !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendation-row-head > div {
+  min-width: 0 !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendation-row-head h2 {
+  margin: 0 !important;
+  color: rgba(255, 255, 255, 0.93) !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendation-row-head .btn-danger {
+  min-width: 64px !important;
+  min-height: 38px !important;
+  padding: 0 15px !important;
+  border: 1px solid rgba(255, 100, 116, 0.28) !important;
+  border-radius: 11px !important;
+  color: #ff9ca7 !important;
+  background: rgba(219, 55, 55, 0.1) !important;
+  font-weight: 680 !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendation-row-head .btn-danger:hover {
+  border-color: rgba(255, 100, 116, 0.5) !important;
+  color: #fff !important;
+  background: rgba(219, 55, 55, 0.3) !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendation-row-add {
+  margin-top: 3px !important;
+  border-style: dashed !important;
+  background: transparent !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendation-row-add .recommendation-row-head {
+  justify-content: center !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendations-add {
+  min-width: 112px !important;
+  min-height: 42px !important;
+  padding: 0 22px !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+  background: linear-gradient(115deg, var(--lear-pink), var(--lear-violet)) !important;
+  font-weight: 720 !important;
+  box-shadow: 0 10px 24px rgba(140, 77, 255, 0.2) !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendations-footer {
+  display: flex !important;
+  margin: 22px 0 0 !important;
+  padding: 20px 0 0 !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+  border-top: 1px solid var(--lear-line) !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendations-footer .btn {
+  min-width: 86px !important;
+  min-height: 42px !important;
+  padding: 0 18px !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendations-footer .btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.78) !important;
+  background: rgba(255, 255, 255, 0.055) !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container-edit .recommendations-footer .btn-primary {
+  border: 0 !important;
+  color: #fff !important;
+  background: linear-gradient(115deg, var(--lear-pink), var(--lear-violet)) !important;
+}
+
+@media (max-width: 700px) {
+  html.lear-cinema.lear-page-home .recommendations-container-edit {
+    width: calc(100% - 24px) !important;
+    margin-top: 92px !important;
+    padding: 16px !important;
+    border-radius: 20px !important;
+  }
+
+  html.lear-cinema.lear-page-home .recommendations-container-edit .recommendation-row-head {
+    padding-left: 15px !important;
+  }
+}
+
+/* 2026-08-08: one layout contract for lists, settings and dialogs. */
+html.lear-cinema.lear-page-library-list .sidebar-pane-content {
+  display: flex !important;
+  min-height: calc(100vh - 96px) !important;
+  flex-direction: column !important;
+}
+
+html.lear-cinema.lear-page-library-list .lear-library-head {
+  width: 100% !important;
+  min-height: 82px !important;
+  margin: 0 !important;
+  padding: 6px 0 18px !important;
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+}
+
+html.lear-cinema.lear-page-library-list .lear-header-pagination {
+  display: flex !important;
+  width: max-content !important;
+  min-height: 34px !important;
+  margin: 30px auto 4px !important;
+  padding: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  line-height: 1 !important;
+}
+
+html.lear-cinema.lear-page-library-list .lear-header-pagination button {
+  display: inline-flex !important;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+}
+
+html.lear-cinema.lear-page-library-list
+  .lear-header-pagination
+  .lear-page-count {
+  width: auto !important;
+  min-width: 126px !important;
+  padding: 0 12px !important;
+  font-size: 0.82rem !important;
+  font-weight: 650 !important;
+  line-height: 1 !important;
+}
+
+html.lear-cinema .lear-gallery-browser,
+html.lear-cinema .lear-recent-albums-browser {
+  background: #050506 !important;
+}
+
+html.lear-cinema .lear-gallery-heading {
+  min-height: 82px !important;
+  margin: 0 auto !important;
+  padding: 6px 0 18px !important;
+  align-items: flex-end !important;
+  background: transparent !important;
+}
+
+html.lear-cinema .lear-gallery-header-actions {
+  display: none !important;
+}
+
+html.lear-cinema .lear-album-categories {
+  display: flex !important;
+  width: 100% !important;
+  max-width: 1920px !important;
+  min-height: 42px !important;
+  margin: 0 auto 26px !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  align-items: flex-end !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+html.lear-cinema .lear-album-categories > p {
+  flex: 0 0 auto !important;
+  margin: 0 0 8px auto !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 0.72rem !important;
+  font-weight: 620 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+html.lear-cinema .lear-album-pagination {
+  display: grid !important;
+  width: max-content !important;
+  min-height: 34px !important;
+  margin: 30px auto 4px !important;
+  padding: 0 !important;
+  grid-template-columns: 34px 34px minmax(126px, auto) 34px 34px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  line-height: 1 !important;
+}
+
+html.lear-cinema .lear-album-pagination .lear-page-summary,
+html.lear-cinema .lear-album-pagination .lear-page-jump,
+html.lear-cinema .lear-album-pagination .lear-page-jump input {
+  line-height: 1 !important;
+}
+
+/* The library path editor is a real four-column table, not a flex row. */
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  .content
+  > .d-md-flex.row,
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  .content
+  > .stash-row.row {
+  display: grid !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 20px !important;
+  grid-template-columns: minmax(260px, 1fr) 132px 132px 44px !important;
+  align-items: center !important;
+  column-gap: 16px !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  .content
+  > .d-md-flex.row
+  > *,
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  .content
+  > .stash-row.row
+  > * {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 10px 0 !important;
+  justify-self: stretch !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  .content
+  > .d-md-flex.row
+  > :not(:first-child),
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  .content
+  > .stash-row.row
+  > :not(:first-child) {
+  text-align: center !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting {
+  display: grid !important;
+  grid-template-columns: minmax(260px, 1fr) minmax(220px, auto) !important;
+  align-items: center !important;
+  column-gap: 28px !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting > :first-child,
+html.lear-cinema.lear-page-settings #settings-container .setting > :last-child {
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  justify-self: stretch !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting > :last-child {
+  justify-self: end !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel .job-table li {
+  display: flex !important;
+  min-height: 44px !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel .job-table button {
+  display: inline-grid !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  place-items: center !important;
+  border-radius: 12px !important;
+  line-height: 1 !important;
+}
+
+/* Dialogs sit above all fixed navigation and share the same glass surface. */
+html.lear-cinema .modal-backdrop.show {
+  z-index: 3000 !important;
+  opacity: 0.78 !important;
+  background: rgba(2, 2, 4, 0.9) !important;
+  backdrop-filter: blur(18px) !important;
+}
+
+html.lear-cinema .ModalComponent.modal.show {
+  z-index: 3010 !important;
+}
+
+html.lear-cinema:has(.ModalComponent.modal.show) .top-nav .navbar-buttons,
+html.lear-cinema:has(.ModalComponent.modal.show) .lear-top-pill {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+html.lear-cinema .ModalComponent.modal.show .modal-dialog {
+  width: min(760px, calc(100vw - 40px)) !important;
+  max-width: 760px !important;
+  margin: 8vh auto !important;
+}
+
+html.lear-cinema .ModalComponent.modal.show .modal-content {
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  border-radius: 22px !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(148, 79, 255, 0.15), transparent 38%),
+    rgba(13, 13, 18, 0.985) !important;
+  box-shadow: 0 34px 110px rgba(0, 0, 0, 0.72) !important;
+}
+
+html.lear-cinema .ModalComponent.modal.show .modal-header,
+html.lear-cinema .ModalComponent.modal.show .modal-body,
+html.lear-cinema .ModalComponent.modal.show .modal-footer {
+  color: inherit !important;
+  background: transparent !important;
+}
+
+@media (max-width: 760px) {
+  html.lear-cinema .lear-album-categories > p {
+    width: 100% !important;
+    margin: 6px 0 0 !important;
+    text-align: left !important;
+  }
+
+  html.lear-cinema.lear-page-settings #settings-container .setting,
+  html.lear-cinema.lear-page-settings
+    #settings-container
+    .setting-section
+    .content
+    > .d-md-flex.row,
+  html.lear-cinema.lear-page-settings
+    #settings-container
+    .setting-section
+    .content
+    > .stash-row.row {
+    grid-template-columns: minmax(0, 1fr) !important;
+    row-gap: 10px !important;
+  }
+
+  html.lear-cinema.lear-page-settings #settings-container .setting > :last-child {
+    justify-self: start !important;
+  }
+}
+
+/* ========================================================================== */
+/* Global library search                                                      */
+/* ========================================================================== */
+
+html.lear-cinema .lear-search-overlay .lear-search-dialog {
+  display: block !important;
+  width: min(1040px, calc(100vw - 40px)) !important;
+  max-height: min(760px, calc(100vh - 72px)) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.13) !important;
+  border-radius: 26px !important;
+  background: rgba(13, 13, 18, 0.92) !important;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.58) !important;
+  backdrop-filter: blur(30px) saturate(135%) !important;
+}
+
+html.lear-cinema .lear-search-row {
+  display: grid !important;
+  grid-template-columns: 28px minmax(0, 1fr) 52px !important;
+  min-height: 84px !important;
+  padding: 14px 16px 14px 24px !important;
+  align-items: center !important;
+  gap: 14px !important;
+  border-bottom: 1px solid transparent !important;
+}
+
+html.lear-cinema .lear-search-overlay.has-results .lear-search-row {
+  border-bottom-color: rgba(255, 255, 255, 0.09) !important;
+}
+
+html.lear-cinema .lear-search-row > svg {
+  width: 25px !important;
+  height: 25px !important;
+  fill: none !important;
+  stroke: rgba(255, 255, 255, 0.66) !important;
+  stroke-width: 1.8 !important;
+}
+
+html.lear-cinema .lear-search-input {
+  width: 100% !important;
+  height: 54px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  color: #fff !important;
+  background: transparent !important;
+  font-size: clamp(18px, 2vw, 24px) !important;
+  font-weight: 650 !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema .lear-search-input::-webkit-search-cancel-button {
+  display: none !important;
+}
+
+html.lear-cinema .lear-search-submit {
+  display: inline-grid !important;
+  width: 48px !important;
+  height: 48px !important;
+  padding: 0 !important;
+  place-items: center !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  background: linear-gradient(135deg, var(--lear-pink), var(--lear-violet)) !important;
+  font-size: 23px !important;
+  box-shadow: 0 10px 24px rgba(140, 77, 255, 0.28) !important;
+}
+
+html.lear-cinema .lear-search-results {
+  display: grid !important;
+  max-height: min(620px, calc(100vh - 170px)) !important;
+  padding: 18px 22px 24px !important;
+  overflow: auto !important;
+  gap: 22px !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent !important;
+}
+
+html.lear-cinema .lear-search-results:empty {
+  display: none !important;
+}
+
+html.lear-cinema .lear-search-group h3 {
+  margin: 0 0 10px !important;
+  color: rgba(255, 255, 255, 0.58) !important;
+  font-size: 12px !important;
+  font-weight: 780 !important;
+  letter-spacing: 0.12em !important;
+}
+
+html.lear-cinema .lear-search-group > div {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+
+html.lear-cinema .lear-search-result {
+  display: grid !important;
+  grid-template-columns: 72px minmax(0, 1fr) !important;
+  min-height: 72px !important;
+  padding: 7px !important;
+  align-items: center !important;
+  gap: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-radius: 15px !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  text-decoration: none !important;
+  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease !important;
+}
+
+html.lear-cinema .lear-search-result:hover,
+html.lear-cinema .lear-search-result:focus-visible {
+  z-index: 1 !important;
+  border-color: rgba(207, 87, 211, 0.52) !important;
+  background: rgba(207, 87, 211, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+html.lear-cinema .lear-search-result > img {
+  width: 72px !important;
+  height: 58px !important;
+  object-fit: cover !important;
+  border-radius: 10px !important;
+  background: #202028 !important;
+}
+
+html.lear-cinema .lear-search-result > span {
+  display: grid !important;
+  min-width: 0 !important;
+  gap: 5px !important;
+}
+
+html.lear-cinema .lear-search-result strong,
+html.lear-cinema .lear-search-result small {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+html.lear-cinema .lear-search-result strong {
+  font-size: 14px !important;
+  line-height: 1.25 !important;
+}
+
+html.lear-cinema .lear-search-result small {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 12px !important;
+}
+
+html.lear-cinema .lear-search-status {
+  padding: 34px 12px !important;
+  color: rgba(255, 255, 255, 0.58) !important;
+  text-align: center !important;
+}
+
+/* ========================================================================== */
+/* Folder-backed photo albums                                                 */
+/* ========================================================================== */
+
+html.lear-cinema.lear-custom-gallery-active .main > :not(.lear-gallery-browser) {
+  display: none !important;
+}
+
+html.lear-cinema.lear-custom-gallery-active body,
+html.lear-cinema.lear-custom-gallery-active .main {
+  overflow: visible !important;
+  background: #050506 !important;
+}
+
+html.lear-cinema .lear-gallery-browser,
+html.lear-cinema .lear-recent-albums-browser {
+  position: relative !important;
+  z-index: 10 !important;
+  display: block !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 clamp(24px, 4vw, 72px) 80px !important;
+  color: #fff !important;
+  background:
+    radial-gradient(circle at 86% 4%, rgba(140, 77, 255, 0.1), transparent 26%),
+    #050506 !important;
+}
+
+html.lear-cinema .lear-gallery-loading,
+html.lear-cinema .lear-gallery-error {
+  display: grid !important;
+  min-height: 52vh !important;
+  place-items: center !important;
+  color: rgba(255, 255, 255, 0.58) !important;
+  font-size: 16px !important;
+}
+
+html.lear-cinema .lear-gallery-heading {
+  display: flex !important;
+  max-width: 1920px !important;
+  margin: 0 auto 30px !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 28px !important;
+}
+
+html.lear-cinema .lear-gallery-header-actions {
+  display: flex !important;
+  width: min(430px, 100%) !important;
+  flex: 0 0 min(430px, 42vw) !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 12px !important;
+}
+
+html.lear-cinema .lear-gallery-heading h1 {
+  margin: 4px 0 5px !important;
+  color: #fff !important;
+  font-size: clamp(34px, 4vw, 58px) !important;
+  font-weight: 820 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.045em !important;
+}
+
+html.lear-cinema .lear-gallery-heading p,
+html.lear-cinema .lear-image-album-panel p {
+  margin: 0 !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 14px !important;
+}
+
+html.lear-cinema .lear-gallery-back {
+  display: inline-flex !important;
+  margin-bottom: 14px !important;
+  color: rgba(255, 255, 255, 0.62) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+html.lear-cinema .lear-gallery-back:hover {
+  color: #fff !important;
+}
+
+html.lear-cinema .lear-album-search {
+  display: grid !important;
+  grid-template-columns: 46px minmax(0, 1fr) !important;
+  width: min(430px, 100%) !important;
+  min-height: 60px !important;
+  padding: 6px 18px 6px 7px !important;
+  align-items: center !important;
+  gap: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.045) !important;
+}
+
+html.lear-cinema .lear-album-search-icon {
+  display: grid !important;
+  width: 46px !important;
+  height: 46px !important;
+  padding: 0 !important;
+  place-items: center !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 50% !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.075) !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema .lear-album-search-icon:hover,
+html.lear-cinema .lear-album-search-icon:focus-visible {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+html.lear-cinema .lear-album-search-icon svg {
+  width: 23px !important;
+  height: 23px !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 2 !important;
+  stroke-linecap: round !important;
+}
+
+html.lear-cinema .lear-album-search input {
+  width: 100% !important;
+  border: 0 !important;
+  outline: 0 !important;
+  color: #fff !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema .lear-album-categories {
+  display: flex !important;
+  max-width: 1920px !important;
+  margin: 0 auto 26px !important;
+  padding-bottom: 4px !important;
+  overflow-x: auto !important;
+  gap: 8px !important;
+  scrollbar-width: none !important;
+}
+
+html.lear-cinema .lear-album-categories::-webkit-scrollbar {
+  display: none !important;
+}
+
+html.lear-cinema .lear-album-categories button {
+  flex: 0 0 auto !important;
+  min-height: 38px !important;
+  padding: 0 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 999px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  font-size: 13px !important;
+  font-weight: 680 !important;
+}
+
+html.lear-cinema .lear-album-categories button.active {
+  border-color: transparent !important;
+  color: #fff !important;
+  background: linear-gradient(120deg, var(--lear-pink), var(--lear-violet)) !important;
+}
+
+html.lear-cinema .lear-album-grid {
+  display: block !important;
+  max-width: 1920px !important;
+  margin: 0 auto !important;
+  columns: 5 260px !important;
+  column-gap: 16px !important;
+}
+
+html.lear-cinema .lear-album-card {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 0 16px !important;
+  overflow: hidden !important;
+  break-inside: avoid !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 19px !important;
+  color: #fff !important;
+  background: #15151a !important;
+  text-decoration: none !important;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.22) !important;
+  transform: translateZ(0) !important;
+  transition: transform 180ms ease, border-color 180ms ease !important;
+}
+
+html.lear-cinema .lear-album-card:hover {
+  z-index: 2 !important;
+  border-color: rgba(207, 87, 211, 0.52) !important;
+  transform: translateY(-5px) scale(1.015) !important;
+}
+
+html.lear-cinema .lear-album-card > img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  transition: transform 350ms ease !important;
+}
+
+html.lear-cinema .lear-album-card:hover > img {
+  transform: scale(1.035) !important;
+}
+
+html.lear-cinema .lear-album-card > span {
+  position: absolute !important;
+  inset: auto 0 0 !important;
+  display: grid !important;
+  min-height: 46% !important;
+  padding: 54px 16px 15px !important;
+  align-content: end !important;
+  gap: 5px !important;
+  background: linear-gradient(180deg, transparent, rgba(3, 3, 5, 0.94)) !important;
+}
+
+html.lear-cinema .lear-album-card strong,
+html.lear-cinema .lear-album-card small {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+html.lear-cinema .lear-album-card strong {
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+}
+
+html.lear-cinema .lear-album-card small {
+  color: rgba(255, 255, 255, 0.54) !important;
+  font-size: 12px !important;
+}
+
+html.lear-cinema .lear-album-more {
+  display: block !important;
+  min-width: 210px !important;
+  height: 46px !important;
+  margin: 34px auto 0 !important;
+  padding: 0 20px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.055) !important;
+  font-weight: 700 !important;
+}
+
+html.lear-cinema .lear-album-pagination {
+  display: grid !important;
+  width: max-content !important;
+  min-height: 40px !important;
+  margin: 0 0 0 auto !important;
+  padding: 0 !important;
+  align-items: center !important;
+  grid-template-columns: 38px 38px minmax(142px, auto) 38px 38px !important;
+  gap: 6px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema .lear-album-pagination button {
+  display: grid !important;
+  width: 38px !important;
+  height: 38px !important;
+  padding: 0 !important;
+  place-items: center !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  color: rgba(255, 255, 255, 0.64) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 20px !important;
+  font-weight: 760 !important;
+}
+
+html.lear-cinema .lear-album-pagination button:hover:not(:disabled),
+html.lear-cinema .lear-album-pagination button:focus-visible {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.lear-cinema .lear-album-pagination button:disabled {
+  opacity: 0.28 !important;
+  cursor: default !important;
+}
+
+html.lear-cinema .lear-page-summary {
+  display: flex !important;
+  min-width: 142px !important;
+  min-height: 38px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+}
+
+html.lear-cinema .lear-page-jump {
+  display: inline-grid !important;
+  width: 28px !important;
+  height: 34px !important;
+  place-items: center !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+}
+
+html.lear-cinema .lear-page-jump input {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 2px !important;
+  border: 0 !important;
+  outline: 0 !important;
+  color: #fff !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font: inherit !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  appearance: textfield !important;
+}
+
+html.lear-cinema .lear-page-jump:focus-within {
+  background: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16) !important;
+}
+
+html.lear-cinema .lear-page-jump input::-webkit-inner-spin-button,
+html.lear-cinema .lear-page-jump input::-webkit-outer-spin-button {
+  margin: 0 !important;
+  appearance: none !important;
+}
+
+/* Gallery header: reuse the compact list-page pagination and omit local search. */
+html.lear-cinema .lear-album-search {
+  display: none !important;
+}
+
+html.lear-cinema .lear-gallery-header-actions {
+  width: auto !important;
+  flex: 0 0 auto !important;
+  align-items: flex-end !important;
+  gap: 0 !important;
+}
+
+html.lear-cinema .lear-album-pagination {
+  min-height: 34px !important;
+  grid-template-columns: 34px 34px minmax(126px, auto) 34px 34px !important;
+  gap: 2px !important;
+}
+
+html.lear-cinema .lear-album-pagination button {
+  width: 34px !important;
+  height: 34px !important;
+  font-size: 15px !important;
+  font-weight: 650 !important;
+}
+
+html.lear-cinema .lear-page-summary {
+  min-width: 126px !important;
+  min-height: 34px !important;
+  padding: 0 12px !important;
+  font-size: 0.82rem !important;
+  font-weight: 650 !important;
+}
+
+html.lear-cinema .lear-page-jump {
+  width: 22px !important;
+  height: 30px !important;
+}
+
+html.lear-cinema .lear-page-jump input {
+  font-size: 0.82rem !important;
+  font-weight: 650 !important;
+}
+
+/* Keep the gallery index header identical in scale to the other library pages. */
+html.lear-cinema .lear-gallery-heading {
+  min-height: 82px !important;
+  margin-bottom: 0 !important;
+  padding: 6px 0 18px !important;
+  align-items: center !important;
+}
+
+html.lear-cinema .lear-gallery-heading h1 {
+  margin: 4px 0 1px !important;
+  font-size: 1.6rem !important;
+  font-weight: 760 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.035em !important;
+}
+
+html.lear-cinema .lear-gallery-heading p {
+  font-size: 0.72rem !important;
+  line-height: 1.2 !important;
+}
+
+html.lear-cinema .lear-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+html.lear-cinema .lear-photo-grid {
+  columns: 6 220px !important;
+  max-width: 1920px !important;
+  margin: 0 auto !important;
+  column-gap: 10px !important;
+}
+
+html.lear-cinema .lear-photo-tile {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 0 10px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  break-inside: avoid !important;
+  border: 0 !important;
+  border-radius: 13px !important;
+  background: #15151a !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema .lear-photo-tile img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  transition: transform 220ms ease, filter 220ms ease !important;
+}
+
+html.lear-cinema .lear-photo-tile:hover img {
+  filter: brightness(1.08) !important;
+  transform: scale(1.02) !important;
+}
+
+html.lear-cinema.lear-page-galleries .lear-gallery-browser:has(.lear-image-main) {
+  display: grid !important;
+  height: 100vh !important;
+  min-height: 720px !important;
+  padding-bottom: 36px !important;
+  grid-template-columns: minmax(260px, 34vw) minmax(0, 1fr) !important;
+  align-items: stretch !important;
+  gap: clamp(22px, 3vw, 54px) !important;
+}
+
+html.lear-cinema .lear-image-album-panel {
+  display: flex !important;
+  min-height: 0 !important;
+  padding: 8px 0 !important;
+  flex-direction: column !important;
+}
+
+html.lear-cinema .lear-image-album-panel h1 {
+  margin: 4px 0 8px !important;
+  font-size: clamp(24px, 3vw, 44px) !important;
+  font-weight: 820 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.04em !important;
+}
+
+html.lear-cinema .lear-image-album-thumbs {
+  display: grid !important;
+  min-height: 0 !important;
+  margin-top: 22px !important;
+  padding-right: 8px !important;
+  overflow-y: auto !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  align-content: start !important;
+  gap: 8px !important;
+  scrollbar-width: thin !important;
+}
+
+html.lear-cinema .lear-image-album-thumbs button {
+  padding: 0 !important;
+  overflow: hidden !important;
+  aspect-ratio: 1 !important;
+  border: 2px solid transparent !important;
+  border-radius: 10px !important;
+  background: #17171c !important;
+  opacity: 0.64 !important;
+}
+
+html.lear-cinema .lear-image-album-thumbs button.active {
+  border-color: var(--lear-pink) !important;
+  opacity: 1 !important;
+}
+
+html.lear-cinema .lear-image-album-thumbs img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+html.lear-cinema .lear-image-main {
+  display: grid !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  place-items: center !important;
+  border: 0 !important;
+  border-radius: 22px !important;
+  background: #0d0d10 !important;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36) !important;
+}
+
+html.lear-cinema .lear-image-main img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+html.lear-cinema .lear-gallery-lightbox {
+  position: fixed !important;
+  z-index: 100000 !important;
+  inset: 0 !important;
+  display: none !important;
+  place-items: center !important;
+  padding: 28px !important;
+  background: rgba(0, 0, 0, 0.88) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+html.lear-cinema .lear-gallery-lightbox.active {
+  display: grid !important;
+}
+
+html.lear-cinema.lear-lightbox-open {
+  overflow: hidden !important;
+}
+
+html.lear-cinema .lear-gallery-lightbox > img {
+  max-width: calc(100vw - 120px) !important;
+  max-height: calc(100vh - 56px) !important;
+  object-fit: contain !important;
+  border-radius: 8px !important;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55) !important;
+}
+
+html.lear-cinema .lear-lightbox-close,
+html.lear-cinema .lear-lightbox-prev,
+html.lear-cinema .lear-lightbox-next {
+  position: fixed !important;
+  z-index: 2 !important;
+  display: grid !important;
+  width: 48px !important;
+  height: 48px !important;
+  padding: 0 !important;
+  place-items: center !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  background: rgba(25, 25, 30, 0.82) !important;
+  font-size: 32px !important;
+  line-height: 1 !important;
+  backdrop-filter: blur(14px) !important;
+}
+
+html.lear-cinema .lear-lightbox-close {
+  top: 22px !important;
+  right: 22px !important;
+}
+
+html.lear-cinema .lear-lightbox-prev,
+html.lear-cinema .lear-lightbox-next {
+  top: calc(50% - 24px) !important;
+}
+
+html.lear-cinema .lear-lightbox-prev { left: 22px !important; }
+html.lear-cinema .lear-lightbox-next { right: 22px !important; }
+
+html.lear-cinema .lear-lightbox-count {
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 50% !important;
+  padding: 8px 13px !important;
+  border-radius: 999px !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  background: rgba(20, 20, 24, 0.78) !important;
+  font-size: 13px !important;
+  transform: translateX(-50%) !important;
+}
+
+@media (max-width: 900px) {
+  html.lear-cinema .lear-search-group > div {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  html.lear-cinema .lear-gallery-heading {
+    align-items: stretch !important;
+    flex-direction: column !important;
+  }
+
+  html.lear-cinema.lear-page-galleries .lear-gallery-browser:has(.lear-image-main) {
+    height: auto !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  html.lear-cinema .lear-image-main {
+    min-height: 55vh !important;
+    grid-row: 1 !important;
+  }
+
+  html.lear-cinema .lear-image-album-panel {
+    grid-row: 2 !important;
+  }
+}
+
+@media (max-width: 620px) {
+  html.lear-cinema .lear-search-group > div {
+    grid-template-columns: 1fr !important;
+  }
+
+  html.lear-cinema .lear-gallery-browser,
+  html.lear-cinema .lear-recent-albums-browser {
+    padding-inline: 14px !important;
+  }
+
+  html.lear-cinema .lear-album-grid {
+    columns: 2 !important;
+    column-gap: 10px !important;
+  }
+
+  html.lear-cinema .lear-album-card {
+    margin-bottom: 10px !important;
+  }
+
+  html.lear-cinema .lear-image-album-thumbs {
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  }
+}
+
+/* 2026-08-02: final settings layout pass. Keep every settings route in one
+   predictable grid and prevent Bootstrap's mx-auto width cap from clipping UI. */
+html.lear-cinema.lear-page-settings .main.container-fluid {
+  width: 100% !important;
+  max-width: none !important;
+  padding: 96px clamp(20px, 3.2vw, 52px) 64px !important;
+  overflow: visible !important;
+}
+
+html.lear-cinema.lear-page-settings .main > .row {
+  display: grid !important;
+  grid-template-columns: 196px minmax(0, 1fr) !important;
+  align-items: start !important;
+  gap: 28px !important;
+  width: min(100%, 1600px) !important;
+  max-width: 1600px !important;
+  margin: 0 auto !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-menu-container,
+html.lear-cinema.lear-page-settings #settings-container {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  flex: none !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container > .tab-content.mx-auto,
+html.lear-cinema.lear-page-settings #settings-container .tab-content.mx-auto,
+html.lear-cinema.lear-page-settings #settings-container > .tab-content,
+html.lear-cinema.lear-page-settings #settings-container .tab-pane.active,
+html.lear-cinema.lear-page-settings #settings-container .setting-section,
+html.lear-cinema.lear-page-settings #settings-container .setting-section > .card,
+html.lear-cinema.lear-page-settings #tasks-panel,
+html.lear-cinema.lear-page-settings .tasks-panel-queue,
+html.lear-cinema.lear-page-settings .tasks-panel-tasks {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container > .tab-content.mx-auto,
+html.lear-cinema.lear-page-settings #settings-container .tab-content.mx-auto {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel,
+html.lear-cinema.lear-page-settings .tasks-panel-queue,
+html.lear-cinema.lear-page-settings .tasks-panel-tasks {
+  position: relative !important;
+  inset: auto !important;
+  float: none !important;
+  clear: both !important;
+  transform: none !important;
+}
+
+html.lear-cinema.lear-page-settings .tasks-panel-queue {
+  display: block !important;
+  min-height: 210px;
+  margin-bottom: 26px !important;
+  overflow: visible !important;
+  isolation: isolate;
+}
+
+html.lear-cinema.lear-page-settings .tasks-panel-tasks {
+  display: grid !important;
+  gap: 18px;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting-section,
+html.lear-cinema.lear-page-settings #settings-container .setting-section > .card {
+  overflow: visible !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting-section > .card,
+html.lear-cinema.lear-page-settings #settings-container .tasks-panel-queue,
+html.lear-cinema.lear-page-settings #settings-container .tasks-panel-task,
+html.lear-cinema.lear-page-settings #settings-container .package-manager,
+html.lear-cinema.lear-page-settings #settings-container .scraper-list,
+html.lear-cinema.lear-page-settings #settings-container .operation-container {
+  border: 1px solid rgba(255, 255, 255, 0.085) !important;
+  border-radius: 22px !important;
+  background: linear-gradient(125deg, rgba(18, 18, 25, 0.97), rgba(25, 20, 36, 0.94)) !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting {
+  display: flex !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 12px 22px !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting > :first-child {
+  min-width: 0 !important;
+  flex: 1 1 380px !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting > :last-child {
+  max-width: 100% !important;
+  margin-left: auto !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .btn-toolbar,
+html.lear-cinema.lear-page-settings #settings-container .btn-group,
+html.lear-cinema.lear-page-settings #settings-container .d-flex {
+  min-width: 0;
+  flex-wrap: wrap !important;
+  gap: 10px;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .btn {
+  min-height: 42px;
+  padding: 8px 16px;
+  border-radius: 12px !important;
+  font-weight: 680;
+  white-space: normal;
+  box-shadow: none !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .btn-danger {
+  border-color: rgba(255, 88, 102, 0.34) !important;
+  background: rgba(202, 48, 66, 0.88) !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .table-responsive,
+html.lear-cinema.lear-page-settings #settings-container table {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .table-responsive {
+  overflow-x: auto !important;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+html.lear-cinema.lear-page-settings #settings-container table {
+  margin: 0 !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  background: transparent !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container thead,
+html.lear-cinema.lear-page-settings #settings-container th {
+  color: rgba(255, 255, 255, 0.92) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container td,
+html.lear-cinema.lear-page-settings #settings-container th {
+  padding: 14px 16px !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .form-control,
+html.lear-cinema.lear-page-settings #settings-container select,
+html.lear-cinema.lear-page-settings #settings-container textarea {
+  max-width: 100% !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.055) !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .scraper-source-list,
+html.lear-cinema.lear-page-settings #settings-container .scraper-source,
+html.lear-cinema.lear-page-settings #settings-container .list-group,
+html.lear-cinema.lear-page-settings #settings-container .accordion {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+@media (max-width: 900px) {
+  html.lear-cinema.lear-page-settings .main.container-fluid {
+    padding: 82px 14px 44px !important;
+  }
+
+  html.lear-cinema.lear-page-settings .main > .row {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  html.lear-cinema.lear-page-settings #settings-menu-container {
+    position: relative !important;
+    top: auto !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+/* 2026-08-06: home page and settings completion pass */
+html.lear-cinema.lear-page-home,
+html.lear-cinema.lear-page-home body,
+html.lear-cinema.lear-page-home #root {
+  min-height: 100%;
+  overflow-x: hidden !important;
+  background: #050506 !important;
+}
+
+html.lear-cinema.lear-page-home .main.container-fluid {
+  width: 100% !important;
+  max-width: none !important;
+  padding: 88px clamp(22px, 3vw, 54px) 64px !important;
+  overflow: hidden !important;
+}
+
+html.lear-cinema.lear-page-home .main h2 {
+  margin: 0 0 18px !important;
+  color: #fff !important;
+  font-size: clamp(20px, 1.65vw, 28px) !important;
+  font-weight: 760 !important;
+  letter-spacing: -0.035em;
+}
+
+html.lear-cinema.lear-page-home .main h2:not(:first-child) {
+  margin-top: 46px !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-slider {
+  width: 100% !important;
+  margin: 0 !important;
+  overflow: visible !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-list {
+  margin: 0 -8px !important;
+  overflow: hidden !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-slide > div {
+  height: 100%;
+  padding: 0 8px !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card,
+html.lear-cinema.lear-page-home .main .studio-card,
+html.lear-cinema.lear-page-home .main .performer-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 20px !important;
+  background: #101014 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card {
+  height: 220px !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card .video-section,
+html.lear-cinema.lear-page-home .main .scene-card .scene-card-preview,
+html.lear-cinema.lear-page-home .main .scene-card .scene-card-preview-image,
+html.lear-cinema.lear-page-home .main .scene-card .scene-card-preview-video {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card .card-section {
+  position: absolute !important;
+  inset: auto 0 0 !important;
+  z-index: 3;
+  min-height: 86px !important;
+  padding: 30px 16px 14px !important;
+  background: linear-gradient(180deg, transparent, rgba(5, 5, 7, 0.94)) !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card .card-section-title {
+  max-width: calc(100% - 86px);
+  margin: 0 !important;
+  color: #fff !important;
+  font-size: 15px !important;
+  line-height: 1.15 !important;
+  font-weight: 720 !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card .scene-specs-overlay {
+  right: 12px !important;
+  bottom: 12px !important;
+  z-index: 4;
+  padding: 5px 8px !important;
+  border-radius: 9px !important;
+  font-size: 12px !important;
+  background: rgba(8, 8, 11, 0.76) !important;
+  backdrop-filter: blur(10px);
+}
+
+html.lear-cinema.lear-page-home .main .scene-card .progress-bar {
+  position: absolute !important;
+  inset: auto 0 0 !important;
+  z-index: 6;
+  height: 3px !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card {
+  height: 286px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Slick uses variable-width slides for studios, so an unusually wide logo can
+   otherwise determine the whole card width. Keep every home studio tile equal. */
+html.lear-cinema.lear-page-home .main .studio-recommendations .slick-slide {
+  width: 274px !important;
+  min-width: 274px !important;
+  max-width: 274px !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-recommendations .slick-slide > div {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card .thumbnail-section {
+  height: 196px !important;
+  min-height: 196px !important;
+  padding: 24px !important;
+  display: grid !important;
+  place-items: center !important;
+  background: linear-gradient(145deg, #171820, #232632) !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card .studio-card-image,
+html.lear-cinema.lear-page-home .main .studio-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card .card-section {
+  min-height: 90px !important;
+  padding: 15px 17px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  background: #101014 !important;
+}
+
+html.lear-cinema.lear-page-home .main .performer-card {
+  height: 390px !important;
+  position: relative !important;
+}
+
+html.lear-cinema.lear-page-home .main .performer-card .thumbnail-section,
+html.lear-cinema.lear-page-home .main .performer-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+html.lear-cinema.lear-page-home .main .performer-card .card-section {
+  position: absolute !important;
+  inset: auto 0 0 !important;
+  z-index: 3;
+  min-height: 96px !important;
+  padding: 34px 16px 15px !important;
+  background: linear-gradient(180deg, transparent, rgba(5, 5, 7, 0.95)) !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card:hover,
+html.lear-cinema.lear-page-home .main .studio-card:hover,
+html.lear-cinema.lear-page-home .main .performer-card:hover {
+  border-color: rgba(222, 94, 211, 0.48) !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .tab-pane.active > h1,
+html.lear-cinema.lear-page-settings #settings-container .tab-pane.active > h2,
+html.lear-cinema.lear-page-settings #settings-container .tab-pane.active > h3 {
+  margin: 0 0 20px !important;
+  color: #fff !important;
+  letter-spacing: -0.035em;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting-section {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting-section > .card,
+html.lear-cinema.lear-page-settings #settings-container .tasks-panel-queue,
+html.lear-cinema.lear-page-settings #settings-container .tasks-panel-task {
+  margin-bottom: 22px !important;
+  padding: 24px !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .card-header,
+html.lear-cinema.lear-page-settings #settings-container .card-footer {
+  margin: 0 !important;
+  padding: 16px 20px !important;
+  border-color: rgba(255, 255, 255, 0.075) !important;
+  background: rgba(255, 255, 255, 0.025) !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .card-body {
+  padding: 20px !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .list-group-item {
+  min-height: 58px;
+  padding: 14px 18px !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  background: transparent !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .list-group-item:hover {
+  background: rgba(255, 255, 255, 0.035) !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting-group,
+html.lear-cinema.lear-page-settings #settings-container .operation-container,
+html.lear-cinema.lear-page-settings #settings-container .package-manager,
+html.lear-cinema.lear-page-settings #settings-container .scraper-list {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 0 22px !important;
+  padding: 24px !important;
+  overflow: visible !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .btn-primary:not(.minimal) {
+  border: 0 !important;
+  color: #fff !important;
+  background: linear-gradient(115deg, var(--lear-pink), var(--lear-violet)) !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .alert,
+html.lear-cinema.lear-page-settings #settings-container .bg-secondary {
+  width: 100% !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+}
+
+@media (max-width: 1180px) {
+  html.lear-cinema .lear-top-pill {
+    width: min(560px, calc(100vw - 210px)) !important;
+  }
+
+  html.lear-cinema.lear-page-home .main .scene-card { height: 200px !important; }
+  html.lear-cinema.lear-page-home .main .studio-card { height: 260px !important; }
+  html.lear-cinema.lear-page-home .main .studio-card .thumbnail-section { height: 174px !important; min-height: 174px !important; }
+  html.lear-cinema.lear-page-home .main .performer-card { height: 350px !important; }
+}
+
+@media (max-width: 760px) {
+  html.lear-cinema.lear-page-home .main.container-fluid {
+    padding: 76px 14px 44px !important;
+  }
+
+  html.lear-cinema.lear-page-home .main h2:not(:first-child) {
+    margin-top: 34px !important;
+  }
+}
+
+
+@media (max-width: 540px) {
+  html.lear-cinema .lear-top-pill a:nth-of-type(3),
+  html.lear-cinema .lear-top-pill a:nth-of-type(4) {
+    display: none;
+  }
+
+  html.lear-cinema .lear-hero-content h1 {
+    font-size: 2.75rem;
+  }
+
+  html.lear-cinema .lear-hero-content p {
+    -webkit-line-clamp: 3;
+  }
+
+  html.lear-cinema .lear-hero-thumbnails a {
+    width: 60px;
+    height: 37px;
+  }
+
+  html.lear-cinema .scene-list .sidebar-pane-content > .row.justify-content-center {
+    grid-template-columns: 1fr;
+  }
+
+  html.lear-cinema.lear-page-library-list
+    .sidebar-pane-content
+    > .row.justify-content-center {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 2026-07 final visual unification */
+
+/* Performer text blocks and country flags share one bottom baseline. */
+html.lear-cinema.lear-page-performers
+  .performer-card
+  .card-section,
+html.lear-cinema.lear-page-scene-detail
+  .performer-card
+  .card-section {
+  display: flex !important;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 38px 50px 14px 14px !important;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+}
+
+html.lear-cinema.lear-page-performers
+  .performer-card
+  .performer-card__country-flag,
+html.lear-cinema.lear-page-scene-detail
+  .performer-card
+  .performer-card__country-flag {
+  right: 14px !important;
+  bottom: 14px !important;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .performer-card
+  .card-section-title,
+html.lear-cinema.lear-page-scene-detail
+  .performer-card
+  .card-section-title {
+  margin: 0 !important;
+  font-size: 0.86rem;
+  font-weight: 680;
+  line-height: 1.1;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .performer-card
+  .performer-card__age,
+html.lear-cinema.lear-page-scene-detail
+  .performer-card
+  .performer-card__age {
+  margin: 2px 0 0 !important;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+/* Studio captions end at the same inset used by the upper count badge. */
+html.lear-cinema.lear-page-studios .studio-card .card-section {
+  display: flex !important;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 38px 14px 9px !important;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+}
+
+/* Collaborator cards use exactly the same grid and card proportions as People. */
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .filtered-list-toolbar,
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .pagination-index-container,
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .sidebar-toggle-button-container {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-entity-detail .gallery-list {
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .sidebar-pane,
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .sidebar-pane-content {
+  top: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .sidebar-pane-content
+  > .row.justify-content-center,
+html.lear-cinema.lear-page-scene-detail .scene-performers {
+  display: grid !important;
+  width: 100%;
+  margin: 0 !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+  justify-content: initial !important;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .performer-card,
+html.lear-cinema.lear-page-scene-detail .performer-card {
+  position: relative;
+  width: auto !important;
+  min-width: 0;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 1px solid var(--lear-line);
+  border-radius: 19px;
+  background: #0e0e12 !important;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .performer-card
+  .thumbnail-section,
+html.lear-cinema.lear-page-scene-detail
+  .performer-card
+  .thumbnail-section {
+  position: relative;
+  width: 100%;
+  height: auto !important;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .performer-card
+  .thumbnail-section
+  img,
+html.lear-cinema.lear-page-scene-detail
+  .performer-card
+  .thumbnail-section
+  img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .performer-card
+  .card-section,
+html.lear-cinema.lear-page-scene-detail
+  .performer-card
+  .card-section {
+  position: absolute;
+  z-index: 4;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    rgba(5, 5, 8, 0.94) 0%,
+    rgba(5, 5, 8, 0.52) 58%,
+    transparent 100%
+  ) !important;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .performer-card
+  hr,
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .performer-card
+  .card-popovers,
+html.lear-cinema.lear-page-scene-detail .performer-card hr,
+html.lear-cinema.lear-page-scene-detail
+  .performer-card
+  .card-popovers {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-entity-detail .lear-card-count,
+html.lear-cinema.lear-page-scene-detail .lear-card-count {
+  position: absolute;
+  z-index: 7;
+  top: 9px;
+  left: 9px;
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(7, 7, 10, 0.68);
+  font-size: 0.68rem;
+  font-weight: 680;
+  line-height: 1;
+  backdrop-filter: blur(10px);
+}
+
+/* Scene playback: title, centered video, then studio and all metadata. */
+html.lear-cinema.lear-page-scene-detail .main > .row {
+  display: grid;
+  max-width: 1320px;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 18px;
+}
+
+html.lear-cinema.lear-page-scene-detail .lear-scene-titlebar {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .lear-scene-titlebar
+  .scene-header {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.65rem, 2.5vw, 2.6rem);
+  font-weight: 780;
+  letter-spacing: -0.045em;
+}
+
+html.lear-cinema.lear-page-scene-detail .scene-player-container {
+  position: static !important;
+  top: auto !important;
+  width: min(1100px, 100%) !important;
+  margin: 0 auto !important;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+html.lear-cinema.lear-page-scene-detail .scene-tabs {
+  width: min(1100px, 100%) !important;
+  margin: 0 auto !important;
+  padding: 4px 0 24px !important;
+  grid-column: 1;
+  grid-row: 3;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none;
+}
+
+html.lear-cinema.lear-page-scene-detail .lear-detail-cover {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .scene-header-container {
+  margin: 4px 0 10px;
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .scene-header-container:empty {
+  display: none;
+}
+
+html.lear-cinema.lear-page-scene-detail .scene-subheader {
+  margin-bottom: 14px;
+}
+
+html.lear-cinema.lear-page-scene-detail .lear-hidden-toolbar,
+html.lear-cinema.lear-page-scene-detail .lear-hidden-tab {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-scene-detail .nav-tabs {
+  margin-top: 12px;
+}
+
+html.lear-cinema.lear-page-scene-detail .tab-content {
+  padding-top: 14px;
+}
+
+@media (max-width: 1150px) {
+  html.lear-cinema.lear-page-entity-detail
+    .gallery-list
+    .sidebar-pane-content
+    > .row.justify-content-center,
+  html.lear-cinema.lear-page-scene-detail .scene-performers {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  html.lear-cinema.lear-page-entity-detail
+    .gallery-list
+    .sidebar-pane-content
+    > .row.justify-content-center,
+  html.lear-cinema.lear-page-scene-detail .scene-performers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+  }
+}
+
+@media (max-width: 540px) {
+  html.lear-cinema.lear-page-entity-detail
+    .gallery-list
+    .sidebar-pane-content
+    > .row.justify-content-center,
+  html.lear-cinema.lear-page-scene-detail .scene-performers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 2026-07-29: studio detail spacing, collapsed behavior, and card parity. */
+html.lear-cinema.lear-page-entity-detail.lear-page-studios .detail-header {
+  position: relative !important;
+  inset: auto !important;
+  z-index: 0 !important;
+  margin-bottom: 20px !important;
+  transform: none !important;
+}
+
+html.lear-cinema.lear-page-entity-detail.lear-page-studios
+  .detail-header.collapsed {
+  position: relative !important;
+  inset: auto !important;
+  z-index: 0 !important;
+  transform: none !important;
+}
+
+html.lear-cinema.lear-page-entity-detail .detail-body .nav-tabs {
+  box-sizing: border-box !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  max-height: 48px !important;
+  margin: 0 0 20px !important;
+  padding: 5px !important;
+  align-items: center !important;
+}
+
+html.lear-cinema.lear-page-entity-detail
+  .detail-body
+  .nav-tabs
+  .nav-link {
+  box-sizing: border-box !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  max-height: 38px !important;
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  align-items: center !important;
+  line-height: 1 !important;
+}
+
+/* Studio performer results use the same six-column desktop rhythm as People. */
+html.lear-cinema.lear-page-entity-detail
+  .gallery-list
+  .sidebar-pane-content
+  > .row.justify-content-center {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+/* Do not let an expanded/collapsed studio banner float over the result cards. */
+html.lear-cinema.lear-page-entity-detail.lear-page-studios
+  .detail-header
+  .background-image-container {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+}
+
+/* Playback page: centered studio mark with date/specs on one shared baseline. */
+html.lear-cinema.lear-page-scene-detail .scene-header-container {
+  display: grid !important;
+  width: 100% !important;
+  min-height: 94px;
+  margin: 4px 0 10px !important;
+  place-items: center;
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .scene-header-container
+  .studio-logo {
+  margin: 0 !important;
+  text-align: center !important;
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .scene-header-container
+  h1.studio-logo:has(img) {
+  display: block !important;
+  width: min(240px, 100%) !important;
+  height: 80px !important;
+  line-height: 0 !important;
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .scene-header-container
+  h1.studio-logo:has(img)
+  > a {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .scene-header-container
+  img.studio-logo {
+  display: block !important;
+  width: 100% !important;
+  max-width: 240px !important;
+  height: 80px !important;
+  max-height: 80px !important;
+  object-fit: contain;
+}
+
+html.lear-cinema img[src*="/studio/3/image"] {
+  filter: invert(1) grayscale(1) brightness(1.45) !important;
+}
+
+html.lear-cinema.lear-page-scene-detail .scene-subheader {
+  display: flex !important;
+  width: 100% !important;
+  margin-bottom: 14px !important;
+  align-items: baseline !important;
+  justify-content: space-between !important;
+}
+
+@media (max-width: 1450px) {
+  html.lear-cinema.lear-page-entity-detail
+    .gallery-list
+    .sidebar-pane-content
+    > .row.justify-content-center {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1150px) {
+  html.lear-cinema.lear-page-entity-detail
+    .gallery-list
+    .sidebar-pane-content
+    > .row.justify-content-center {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  html.lear-cinema.lear-page-entity-detail
+    .gallery-list
+    .sidebar-pane-content
+    > .row.justify-content-center {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 540px) {
+  html.lear-cinema.lear-page-entity-detail
+    .gallery-list
+    .sidebar-pane-content
+    > .row.justify-content-center {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 2026-07-29: search confirmation, cropped scene posters, and performer scroll layering. */
+html.lear-cinema .lear-search-submit:hover,
+html.lear-cinema .lear-search-submit:focus-visible {
+  filter: brightness(1.12);
+  transform: scale(1.04);
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .scene-player-container
+  .vjs-poster {
+  background-position: 50% 50% !important;
+  background-size: cover !important;
+}
+
+html.lear-cinema.lear-page-entity-detail.lear-page-performers .detail-header {
+  position: relative !important;
+  inset: auto !important;
+  z-index: 0 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema.lear-page-entity-detail.lear-page-performers .detail-body {
+  position: relative !important;
+  z-index: 1 !important;
+  background: #000 !important;
+}
+
+/* Player menus: keep scrolling available, but remove the exposed scrollbar. */
+html.lear-cinema video-js .vjs-menu-content,
+html.lear-cinema .video-js .vjs-menu-content {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 14px !important;
+  background: rgba(34, 34, 39, 0.94) !important;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.42) !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  clip-path: inset(0 round 14px);
+}
+
+html.lear-cinema video-js .vjs-menu-content::-webkit-scrollbar,
+html.lear-cinema .video-js .vjs-menu-content::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+html.lear-cinema video-js .vjs-menu-content .vjs-menu-item:first-child,
+html.lear-cinema .video-js .vjs-menu-content .vjs-menu-item:first-child {
+  border-radius: 13px 13px 0 0;
+}
+
+html.lear-cinema video-js .vjs-menu-content .vjs-menu-item:last-child,
+html.lear-cinema .video-js .vjs-menu-content .vjs-menu-item:last-child {
+  border-radius: 0 0 13px 13px;
+}
+
+/* The studio page already has a full header; remove Stash's duplicate sticky summary. */
+html.lear-cinema.lear-page-entity-detail.lear-page-studios
+  .sticky.detail-header {
+  display: none !important;
+}
+
+/* 2026-07-31: settings pages — remove nested frames and unify dialogs. */
+html.lear-cinema.lear-page-settings #settings-container .setting-section {
+  display: flow-root;
+  margin: 0 0 28px !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > h1 {
+  margin: 0 4px 14px !important;
+  padding: 0 !important;
+  color: #fff !important;
+  font-size: clamp(1.55rem, 2vw, 2rem) !important;
+  font-weight: 760 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.045em !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > h1:empty {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .sub-heading {
+  margin: -6px 4px 14px !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 0.88rem;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card {
+  margin: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 20px !important;
+  background:
+    radial-gradient(circle at 96% 0%, rgba(148, 79, 255, 0.1), transparent 38%),
+    linear-gradient(145deg, rgba(24, 24, 31, 0.97), rgba(13, 13, 17, 0.98)) !important;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2) !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .card > .setting,
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .card
+  > .setting-group
+  > .setting {
+  min-height: 60px;
+  padding: 15px 20px !important;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065) !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .card
+  > .setting:last-child,
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .card
+  > .setting-group
+  > .setting:last-child {
+  border-bottom: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting h3 {
+  margin: 0 !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-size: 1rem !important;
+  font-weight: 680 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.018em !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting-description,
+html.lear-cinema.lear-page-settings #settings-container .text-muted {
+  color: rgba(255, 255, 255, 0.52) !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel {
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel .tasks-panel-queue {
+  margin: 0 0 28px !important;
+  padding: 22px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.09) !important;
+  border-radius: 20px !important;
+  background:
+    radial-gradient(circle at 95% 0%, rgba(148, 79, 255, 0.1), transparent 42%),
+    linear-gradient(145deg, rgba(24, 24, 31, 0.97), rgba(13, 13, 17, 0.98)) !important;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.2) !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel .tasks-panel-queue > h1 {
+  margin: 0 0 14px !important;
+  color: #fff !important;
+  font-size: clamp(1.55rem, 2vw, 2rem) !important;
+  font-weight: 760 !important;
+  line-height: 1.08 !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel .job-table.card {
+  min-height: 118px;
+  margin: 0 !important;
+  padding: 18px 20px !important;
+  border-radius: 16px !important;
+  background: rgba(5, 5, 8, 0.26) !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel .job-table ul {
+  margin: 0;
+  padding: 0;
+}
+
+html.lear-cinema.lear-page-settings
+  #tasks-panel
+  .tasks-panel-tasks
+  > .form-group {
+  margin: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #tasks-panel
+  .tasks-panel-tasks
+  .setting-section {
+  clear: both;
+}
+
+html.lear-cinema.lear-page-settings
+  #tasks-panel
+  .tasks-panel-tasks
+  .setting-section
+  + .setting-section {
+  margin-top: 30px !important;
+}
+
+html.lear-cinema .modal-backdrop.show {
+  opacity: 0.72 !important;
+  background: #030305 !important;
+  backdrop-filter: blur(14px);
+}
+
+html.lear-cinema .ModalComponent .modal-dialog {
+  width: min(1040px, calc(100vw - 40px));
+  max-width: 1040px !important;
+  margin: 5vh auto !important;
+}
+
+html.lear-cinema .ModalComponent .modal-content {
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  border-radius: 22px !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(148, 79, 255, 0.16), transparent 40%),
+    linear-gradient(145deg, rgba(24, 24, 31, 0.99), rgba(10, 10, 14, 0.99)) !important;
+  box-shadow: 0 34px 110px rgba(0, 0, 0, 0.68) !important;
+}
+
+html.lear-cinema .ModalComponent .modal-header {
+  display: flex;
+  min-height: 68px;
+  padding: 18px 24px !important;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.025) !important;
+  font-size: 1.08rem;
+  font-weight: 720;
+}
+
+html.lear-cinema .ModalComponent .modal-header > svg {
+  color: var(--lear-pink);
+}
+
+html.lear-cinema .ModalComponent .modal-body {
+  max-height: min(74vh, 760px);
+  padding: 24px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  background: transparent !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html.lear-cinema .ModalComponent .modal-body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+html.lear-cinema .ModalComponent .modal-footer {
+  min-height: 72px;
+  padding: 14px 22px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.025) !important;
+}
+
+html.lear-cinema .ModalComponent .form-group {
+  margin-bottom: 22px;
+}
+
+html.lear-cinema .ModalComponent h4,
+html.lear-cinema .ModalComponent h5 {
+  color: #fff !important;
+  font-weight: 720;
+  letter-spacing: -0.025em;
+}
+
+html.lear-cinema .ModalComponent .list-group,
+html.lear-cinema .ModalComponent .card,
+html.lear-cinema .ModalComponent .bg-secondary {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.085) !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema .ModalComponent .list-group-item {
+  min-height: 56px;
+  padding: 13px 16px !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  background: transparent !important;
+}
+
+html.lear-cinema .ModalComponent .form-control,
+html.lear-cinema .ModalComponent select,
+html.lear-cinema .ModalComponent textarea,
+html.lear-cinema .ModalComponent .react-select__control {
+  min-height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.055) !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema .ModalComponent .btn {
+  min-height: 42px;
+  padding: 0 17px;
+  border-radius: 12px !important;
+  font-weight: 680;
+  box-shadow: none !important;
+}
+
+html.lear-cinema .ModalComponent .btn-primary:not(.minimal) {
+  border: 0 !important;
+  color: #fff !important;
+  background: linear-gradient(115deg, var(--lear-pink), var(--lear-violet)) !important;
+}
+
+html.lear-cinema .ModalComponent .btn-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.86) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+html.lear-cinema .ModalComponent .btn-primary.minimal {
+  min-width: 42px;
+  padding: 0 12px;
+  border: 0 !important;
+  color: rgba(255, 255, 255, 0.72) !important;
+  background: transparent !important;
+}
+
+html.lear-cinema .ModalComponent .btn:hover {
+  filter: brightness(1.12);
+}
+
+html.lear-cinema .ModalComponent .dialog-selected-folders > div {
+  display: flex;
+  min-height: 54px;
+  padding: 12px 16px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+html.lear-cinema .ModalComponent .scraper-source-list {
+  margin-top: 12px;
+}
+
+html.lear-cinema .ModalComponent input[type="checkbox"],
+html.lear-cinema .ModalComponent input[type="radio"] {
+  accent-color: var(--lear-pink);
+}
+
+@media (max-width: 820px) {
+  html.lear-cinema.lear-page-settings .main.container-fluid {
+    padding: 86px 14px 46px;
+  }
+
+  html.lear-cinema.lear-page-settings .main > .row {
+    display: block;
+  }
+
+  html.lear-cinema.lear-page-settings #settings-menu-container {
+    position: relative !important;
+    top: auto;
+    margin-bottom: 20px;
+  }
+
+  html.lear-cinema .ModalComponent .modal-dialog {
+    width: calc(100vw - 20px);
+    margin: 10px auto !important;
+  }
+}
+
+/* 2026-08-08: final home layout overrides (must remain after legacy rules) */
+html.lear-cinema.lear-page-home .main.container-fluid {
+  width: 100% !important;
+  max-width: none !important;
+  padding: 0 0 72px !important;
+  overflow-x: hidden !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container {
+  width: 100% !important;
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container > .lear-cinema-hero {
+  width: 100% !important;
+  height: clamp(520px, 72vh, 760px) !important;
+  min-height: 520px !important;
+}
+
+html.lear-cinema.lear-page-home .recommendations-container > div:first-of-type {
+  width: min(calc(100% - (2 * clamp(24px, 4vw, 72px))), 1900px) !important;
+  margin: 42px auto 0 !important;
+  padding: 0 !important;
+  container-name: lear-home-rail;
+  container-type: inline-size;
+}
+
+html.lear-cinema.lear-page-home .recommendation-row {
+  margin: 0 0 44px !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-home .main .recommendation-row-head {
+  min-height: 44px !important;
+  padding: 0 2px 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+}
+
+html.lear-cinema.lear-page-home .main .recommendation-row-head h2,
+html.lear-cinema.lear-page-home .main .recommendation-row-head h2:not(:first-child) {
+  margin: 0 !important;
+  font-size: clamp(20px, 1.35vw, 26px) !important;
+  line-height: 1.15 !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-slider,
+html.lear-cinema.lear-page-home .main .slick-list {
+  width: 100% !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-list {
+  margin: 0 !important;
+  overflow: hidden !important;
+  border-radius: 20px;
+}
+
+html.lear-cinema.lear-page-home .main .slick-track {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-slide {
+  float: none !important;
+  height: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-slide > div {
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 8px !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-recommendations .slick-slide {
+  width: 100cqw !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-recommendations .slick-slide,
+html.lear-cinema.lear-page-home .main .performer-recommendations .slick-slide {
+  width: 50cqw !important;
+  min-width: 0 !important;
+  max-width: none !important;
+}
+
+@container lear-home-rail (min-width: 700px) {
+  html.lear-cinema.lear-page-home .main .scene-recommendations .slick-slide { width: 50cqw !important; }
+  html.lear-cinema.lear-page-home .main .studio-recommendations .slick-slide,
+  html.lear-cinema.lear-page-home .main .performer-recommendations .slick-slide { width: 33.3333cqw !important; }
+}
+
+@container lear-home-rail (min-width: 1050px) {
+  html.lear-cinema.lear-page-home .main .scene-recommendations .slick-slide { width: 33.3333cqw !important; }
+  html.lear-cinema.lear-page-home .main .studio-recommendations .slick-slide,
+  html.lear-cinema.lear-page-home .main .performer-recommendations .slick-slide { width: 25cqw !important; }
+}
+
+@container lear-home-rail (min-width: 1400px) {
+  html.lear-cinema.lear-page-home .main .scene-recommendations .slick-slide { width: 25cqw !important; }
+  html.lear-cinema.lear-page-home .main .studio-recommendations .slick-slide,
+  html.lear-cinema.lear-page-home .main .performer-recommendations .slick-slide { width: 16.6667cqw !important; }
+}
+
+@container lear-home-rail (min-width: 1750px) {
+  html.lear-cinema.lear-page-home .main .scene-recommendations .slick-slide { width: 20cqw !important; }
+  html.lear-cinema.lear-page-home .main .studio-recommendations .slick-slide,
+  html.lear-cinema.lear-page-home .main .performer-recommendations .slick-slide { width: 14.2857cqw !important; }
+}
+
+html.lear-cinema.lear-page-home .main .scene-card,
+html.lear-cinema.lear-page-home .main .studio-card,
+html.lear-cinema.lear-page-home .main .performer-card {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  border-radius: 18px !important;
+  transition: transform 170ms ease, border-color 170ms ease, box-shadow 170ms ease !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card {
+  aspect-ratio: 16 / 9 !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card {
+  aspect-ratio: 1.16 / 1 !important;
+  display: block !important;
+  background: linear-gradient(145deg, #111219, #1b1d27) !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card .thumbnail-section {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  padding: 24px 24px 72px !important;
+  display: grid !important;
+  place-items: center !important;
+  background: radial-gradient(circle at 50% 30%, rgba(255,255,255,.055), transparent 62%) !important;
+}
+
+html.lear-cinema.lear-page-home .main .studio-card .card-section {
+  position: absolute !important;
+  z-index: 3 !important;
+  inset: auto 0 0 !important;
+  min-height: 76px !important;
+  padding: 26px 15px 13px !important;
+  justify-content: flex-end !important;
+  gap: 2px !important;
+  background: linear-gradient(180deg, transparent, rgba(5,5,7,.97)) !important;
+}
+
+html.lear-cinema.lear-page-home .main .performer-card {
+  aspect-ratio: 2 / 3 !important;
+}
+
+html.lear-cinema.lear-page-home .main .performer-card .card-section {
+  min-height: 92px !important;
+  padding: 34px 15px 14px !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card:hover,
+html.lear-cinema.lear-page-home .main .studio-card:hover,
+html.lear-cinema.lear-page-home .main .performer-card:hover {
+  z-index: 3;
+  border-color: rgba(243, 114, 186, .48) !important;
+  box-shadow: 0 20px 42px rgba(0,0,0,.38) !important;
+  transform: translateY(-4px) !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-arrow {
+  top: 50% !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  border-radius: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-dots {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  html.lear-cinema.lear-page-home .main.container-fluid { padding: 0 0 44px !important; }
+  html.lear-cinema.lear-page-home .recommendations-container > .lear-cinema-hero {
+    height: 540px !important;
+    min-height: 540px !important;
+  }
+}
+
+/* Keep raised home cards inside the carousel's visible area. */
+html.lear-cinema.lear-page-home .main .recommendation-row .slick-list {
+  margin-top: -10px !important;
+  padding-top: 10px !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card,
+html.lear-cinema.lear-page-home .main .studio-card,
+html.lear-cinema.lear-page-home .main .performer-card {
+  transform-origin: 50% 50% !important;
+}
+
+html.lear-cinema.lear-page-home .main .scene-card:hover,
+html.lear-cinema.lear-page-home .main .studio-card:hover,
+html.lear-cinema.lear-page-home .main .performer-card:hover {
+  transform: translateY(-4px) scale(1.012) !important;
+}
+
+/* Performer cards: remove the inherited footer gap and keep the work count on-image. */
+html.lear-cinema.lear-page-home
+  .main
+  .performer-recommendations
+  .performer-card {
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .performer-recommendations
+  .performer-card
+  > hr {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .performer-recommendations
+  .performer-card
+  > .card-popovers {
+  position: absolute !important;
+  z-index: 6 !important;
+  inset: 12px auto auto 12px !important;
+  width: auto !important;
+  height: 30px !important;
+  min-height: 30px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 999px !important;
+  background: rgba(7, 7, 10, 0.72) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .performer-recommendations
+  .performer-card
+  > .card-popovers
+  .btn {
+  width: auto !important;
+  min-width: 0 !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  padding: 2px 10px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  background: transparent !important;
+}
+
+/* Home recommendation editor: keep editing controls isolated from carousel rules. */
+html.lear-cinema.lear-page-home .main .recommendations-container-edit {
+  width: min(1120px, calc(100% - 48px)) !important;
+  max-width: 1120px !important;
+  margin: 108px auto 72px !important;
+  padding: 24px !important;
+  overflow: visible !important;
+  border: 1px solid var(--lear-line) !important;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(140, 77, 255, 0.11), transparent 34%),
+    rgba(16, 16, 20, 0.96) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34) !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container-edit
+  > div:first-of-type {
+  display: grid !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 12px !important;
+  container-type: normal !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container-edit
+  .recommendation-row {
+  width: 100% !important;
+  min-height: 66px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container-edit
+  .recommendation-row-head {
+  display: flex !important;
+  min-height: 66px !important;
+  margin: 0 !important;
+  padding: 12px 14px 12px 20px !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container-edit
+  .recommendation-row-head h2,
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container-edit
+  .recommendation-row-head h2:not(:first-child) {
+  margin: 0 !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.01em !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container-edit
+  .recommendation-row-head
+  .btn-danger {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 66px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  margin: 0 !important;
+  padding: 0 16px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(255, 100, 116, 0.3) !important;
+  border-radius: 12px !important;
+  color: #ff9ca7 !important;
+  background: rgba(219, 55, 55, 0.11) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container-edit
+  .recommendation-row-add {
+  min-height: 58px !important;
+  margin-top: 2px !important;
+  border-style: dashed !important;
+  background: transparent !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container-edit
+  .recommendation-row-add
+  .recommendation-row-head {
+  min-height: 58px !important;
+  justify-content: center !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container-edit
+  .recommendations-add,
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container:not(.recommendations-container-edit)
+  > .recommendations-footer
+  .btn-primary {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 108px !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  margin: 0 !important;
+  padding: 0 20px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+  background: linear-gradient(115deg, var(--lear-pink), var(--lear-violet)) !important;
+  font-size: 14px !important;
+  font-weight: 720 !important;
+  line-height: 1 !important;
+  box-shadow: 0 10px 24px rgba(140, 77, 255, 0.2) !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container-edit
+  > .recommendations-footer {
+  display: flex !important;
+  width: 100% !important;
+  margin: 20px 0 0 !important;
+  padding: 18px 0 0 !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+  border-top: 1px solid var(--lear-line) !important;
+}
+
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container-edit
+  > .recommendations-footer
+  .btn {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 86px !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  margin: 0 !important;
+  padding: 0 18px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 12px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  box-shadow: none !important;
+}
+
+/* The normal-home customize control belongs directly beneath the last rail. */
+html.lear-cinema.lear-page-home
+  .main
+  .recommendations-container:not(.recommendations-container-edit)
+  > .recommendations-footer {
+  display: flex !important;
+  width: min(calc(100% - (2 * clamp(24px, 4vw, 72px))), 1900px) !important;
+  margin: -22px auto 0 !important;
+  padding: 0 2px !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  border: 0 !important;
+}
+
+@media (max-width: 700px) {
+  html.lear-cinema.lear-page-home .main .recommendations-container-edit {
+    width: calc(100% - 24px) !important;
+    margin-top: 92px !important;
+    padding: 16px !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* ========================================================================== */
+/* 2026-08-08 FINAL CASCADE — canonical layout contract                       */
+/* Keep this block last. It intentionally wins over the legacy theme rules.   */
+/* ========================================================================== */
+
+/* Shared list-page geometry: one content column, pagination after the grid. */
+html.lear-cinema.lear-page-library-list .sidebar-pane-content {
+  display: flex !important;
+  width: 100% !important;
+  min-height: calc(100vh - 96px) !important;
+  flex-direction: column !important;
+}
+
+html.lear-cinema.lear-page-library-list .lear-library-head {
+  width: min(calc(100% - 48px), 1920px) !important;
+  min-height: 82px !important;
+  margin: 0 auto !important;
+  padding: 8px 0 18px !important;
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+  background: transparent !important;
+}
+
+html.lear-cinema.lear-page-library-list .lear-header-pagination,
+html.lear-cinema.lear-page-scenes .lear-header-pagination,
+html.lear-cinema.lear-page-entity-detail .lear-header-pagination,
+html.lear-cinema .lear-album-pagination {
+  position: relative !important;
+  inset: auto !important;
+  z-index: 2 !important;
+  display: grid !important;
+  width: max-content !important;
+  min-width: 0 !important;
+  min-height: 34px !important;
+  margin: 32px auto 12px !important;
+  padding: 0 !important;
+  grid-template-columns: 34px 34px minmax(126px, auto) 34px 34px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 2px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  line-height: 1 !important;
+  transform: none !important;
+}
+
+html.lear-cinema.lear-page-library-list .lear-header-pagination button,
+html.lear-cinema.lear-page-scenes .lear-header-pagination button,
+html.lear-cinema.lear-page-entity-detail .lear-header-pagination button,
+html.lear-cinema .lear-album-pagination button {
+  display: inline-flex !important;
+  width: 34px !important;
+  min-width: 34px !important;
+  height: 34px !important;
+  min-height: 34px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  color: rgba(255, 255, 255, 0.62) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font: inherit !important;
+  line-height: 1 !important;
+  transform: none !important;
+}
+
+html.lear-cinema.lear-page-library-list .lear-header-pagination button:hover:not(:disabled),
+html.lear-cinema.lear-page-scenes .lear-header-pagination button:hover:not(:disabled),
+html.lear-cinema.lear-page-entity-detail
+  .lear-header-pagination
+  button:hover:not(:disabled),
+html.lear-cinema .lear-album-pagination button:hover:not(:disabled) {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.lear-cinema.lear-page-library-list .lear-header-pagination button:disabled,
+html.lear-cinema.lear-page-scenes .lear-header-pagination button:disabled,
+html.lear-cinema.lear-page-entity-detail
+  .lear-header-pagination
+  button:disabled,
+html.lear-cinema .lear-album-pagination button:disabled {
+  opacity: 0.28 !important;
+}
+
+html.lear-cinema.lear-page-library-list .lear-header-pagination .lear-page-count,
+html.lear-cinema.lear-page-scenes .lear-header-pagination .lear-page-count,
+html.lear-cinema.lear-page-entity-detail
+  .lear-header-pagination
+  .lear-page-count,
+html.lear-cinema .lear-album-pagination .lear-page-summary,
+html.lear-cinema .lear-album-pagination .lear-page-jump {
+  display: inline-flex !important;
+  min-width: 126px !important;
+  height: 34px !important;
+  margin: 0 !important;
+  padding: 0 12px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff !important;
+  background: transparent !important;
+  font-size: 13px !important;
+  font-weight: 760 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  vertical-align: middle !important;
+}
+
+html.lear-cinema .lear-album-pagination .lear-page-jump input {
+  width: 42px !important;
+  height: 28px !important;
+  margin: 0 4px !important;
+  padding: 0 6px !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  line-height: 1 !important;
+  text-align: center !important;
+}
+
+/* Gallery: black canvas, categories left, statistics right on one baseline. */
+html.lear-cinema .lear-gallery-browser,
+html.lear-cinema.lear-custom-gallery-active .main {
+  background: #050506 !important;
+  background-image: none !important;
+}
+
+html.lear-cinema .lear-gallery-heading {
+  width: min(calc(100% - 48px), 1920px) !important;
+  min-height: 82px !important;
+  margin: 0 auto !important;
+  padding: 8px 0 18px !important;
+  align-items: flex-end !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+
+html.lear-cinema .lear-gallery-heading > p,
+html.lear-cinema .lear-gallery-header-actions {
+  display: none !important;
+}
+
+html.lear-cinema .lear-album-categories {
+  display: flex !important;
+  width: min(calc(100% - 48px), 1920px) !important;
+  max-width: 1920px !important;
+  min-height: 44px !important;
+  margin: 0 auto 26px !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema .lear-album-categories > p {
+  display: block !important;
+  margin: 0 0 8px auto !important;
+  padding: 0 2px !important;
+  align-self: flex-end !important;
+  color: rgba(255, 255, 255, 0.48) !important;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+html.lear-cinema .lear-album-categories button {
+  min-height: 38px !important;
+  margin: 0 !important;
+  padding: 0 18px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.025) !important;
+  line-height: 1 !important;
+}
+
+/* Settings: repeatable two-column rows and a fixed four-column library row. */
+html.lear-cinema.lear-page-settings #settings-container .setting {
+  display: grid !important;
+  width: 100% !important;
+  grid-template-columns: minmax(260px, 1fr) minmax(220px, auto) !important;
+  align-items: center !important;
+  gap: 16px 28px !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting > :first-child,
+html.lear-cinema.lear-page-settings #settings-container .setting > :last-child {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings #settings-container .setting > :last-child {
+  justify-self: end !important;
+  text-align: right !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  .content
+  > .d-md-flex.row,
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  .content
+  > .stash-row.row {
+  display: grid !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 20px !important;
+  grid-template-columns: minmax(260px, 1fr) 132px 132px 44px !important;
+  align-items: center !important;
+  column-gap: 16px !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  .content
+  > .d-md-flex.row
+  > *,
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  .content
+  > .stash-row.row
+  > * {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 12px 0 !important;
+  align-self: center !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  .content
+  > .d-md-flex.row
+  > :not(:first-child),
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  .content
+  > .stash-row.row
+  > :not(:first-child) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel .job-table li {
+  display: flex !important;
+  min-height: 48px !important;
+  padding: 8px 12px !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel .job-table li .btn,
+html.lear-cinema.lear-page-settings #tasks-panel .job-table li button {
+  display: inline-flex !important;
+  width: 40px !important;
+  min-width: 40px !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 12px !important;
+  line-height: 1 !important;
+}
+
+/* Dialogs: always above app chrome, never inherit the old blue/grey sheet. */
+html.lear-cinema .modal-backdrop.show {
+  z-index: 3000 !important;
+  opacity: 0.78 !important;
+  background: #000 !important;
+  backdrop-filter: blur(18px) !important;
+}
+
+html.lear-cinema .ModalComponent.modal.show,
+html.lear-cinema .modal.show {
+  z-index: 3010 !important;
+}
+
+html.lear-cinema:has(.modal.show) .top-nav .navbar-buttons,
+html.lear-cinema:has(.modal.show) .lear-top-pill,
+html.lear-cinema:has(.modal.show) .top-nav .settings-button {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+html.lear-cinema .ModalComponent .modal-dialog,
+html.lear-cinema .modal.show .modal-dialog {
+  width: min(760px, calc(100vw - 40px)) !important;
+  max-width: 760px !important;
+  margin: 8vh auto !important;
+  transform: none !important;
+}
+
+html.lear-cinema .ModalComponent .modal-content,
+html.lear-cinema .modal.show .modal-content {
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 22px !important;
+  color: #f7f7fb !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(148, 76, 255, 0.14), transparent 38%),
+    rgba(12, 12, 17, 0.96) !important;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.64) !important;
+  backdrop-filter: blur(26px) saturate(125%) !important;
+}
+
+html.lear-cinema .ModalComponent .modal-header,
+html.lear-cinema .ModalComponent .modal-body,
+html.lear-cinema .ModalComponent .modal-footer,
+html.lear-cinema .modal.show .modal-header,
+html.lear-cinema .modal.show .modal-body,
+html.lear-cinema .modal.show .modal-footer {
+  color: inherit !important;
+  background: transparent !important;
+}
+
+html.lear-cinema .ModalComponent .modal-header,
+html.lear-cinema .modal.show .modal-header {
+  min-height: 62px !important;
+  padding: 16px 20px !important;
+  align-items: center !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09) !important;
+}
+
+html.lear-cinema .ModalComponent .modal-body,
+html.lear-cinema .modal.show .modal-body {
+  padding: 20px !important;
+}
+
+html.lear-cinema .ModalComponent .modal-footer,
+html.lear-cinema .modal.show .modal-footer {
+  min-height: 68px !important;
+  padding: 13px 20px !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.09) !important;
+}
+
+html.lear-cinema .ModalComponent .form-control,
+html.lear-cinema .ModalComponent input,
+html.lear-cinema .ModalComponent select,
+html.lear-cinema .modal.show .form-control {
+  min-height: 44px !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 12px !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.055) !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema .ModalComponent .btn,
+html.lear-cinema .modal.show .btn {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 82px !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  margin: 0 !important;
+  padding: 0 18px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 12px !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 760px) {
+  html.lear-cinema.lear-page-library-list .lear-library-head,
+  html.lear-cinema .lear-gallery-heading,
+  html.lear-cinema .lear-album-categories {
+    width: calc(100% - 24px) !important;
+  }
+
+  html.lear-cinema .lear-album-categories > p {
+    width: 100% !important;
+    margin: 8px 0 0 !important;
+  }
+
+  html.lear-cinema.lear-page-settings #settings-container .setting,
+  html.lear-cinema.lear-page-settings
+    #settings-container
+    .setting-section
+    .content
+    > .d-md-flex.row,
+  html.lear-cinema.lear-page-settings
+    #settings-container
+    .setting-section
+    .content
+    > .stash-row.row {
+    grid-template-columns: 1fr !important;
+  }
+
+  html.lear-cinema.lear-page-settings #settings-container .setting > :last-child {
+    justify-self: start !important;
+    text-align: left !important;
+  }
+}
+
+/* Settings layout hotfix: keep the library switches inside their grid cells. */
+html.lear-cinema.lear-page-settings
+  #settings-container
+  #stash-table
+  .stash-row
+  .setting {
+  display: flex !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  grid-template-columns: none !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  #stash-table
+  .stash-row
+  .setting
+  > :first-child {
+  display: none !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  flex: none !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  #stash-table
+  .stash-row
+  .setting
+  > :last-child {
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  flex: none !important;
+  justify-self: auto !important;
+  text-align: center !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  #stash-table
+  .stash-row
+  > :nth-child(2)
+  > div,
+html.lear-cinema.lear-page-settings
+  #settings-container
+  #stash-table
+  .stash-row
+  > :nth-child(3)
+  > div {
+  display: flex !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Services: one action row on wide layouts, with a content-based fallback. */
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card:has(.addresses) {
+  display: grid !important;
+  grid-template-columns: max-content minmax(280px, 1fr) max-content !important;
+  align-items: end !important;
+  gap: 18px !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card:has(.addresses)
+  > .content {
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card:has(.addresses)
+  > .content:first-child {
+  grid-column: 1 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card:has(.addresses)
+  > .content:has(.addresses) {
+  display: grid !important;
+  grid-column: 2 / -1 !important;
+  grid-template-columns: minmax(0, 1fr) max-content !important;
+  align-items: end !important;
+  gap: 8px 18px !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card:has(.addresses)
+  > .content:has(.addresses)
+  > h6 {
+  grid-column: 1 / -1 !important;
+  margin: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card:has(.addresses)
+  > .content:has(.addresses)
+  > .form-group {
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card:has(.addresses)
+  .addresses,
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card:has(.addresses)
+  .addresses
+  > li {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card:has(.addresses)
+  .addresses
+  > li {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 44px !important;
+  align-items: center !important;
+  gap: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card:has(.addresses)
+  .address,
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card:has(.addresses)
+  .address
+  .form-control {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #settings-container
+  .setting-section
+  > .card:has(.addresses)
+  .buttons
+  .btn {
+  width: 44px !important;
+  min-width: 44px !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 760px) {
+  html.lear-cinema.lear-page-settings
+    #settings-container
+    .setting-section
+    > .card:has(.addresses),
+  html.lear-cinema.lear-page-settings
+    #settings-container
+    .setting-section
+    > .card:has(.addresses)
+    > .content:has(.addresses) {
+    grid-template-columns: 1fr !important;
+  }
+
+  html.lear-cinema.lear-page-settings
+    #settings-container
+    .setting-section
+    > .card:has(.addresses)
+    > .content:first-child,
+  html.lear-cinema.lear-page-settings
+    #settings-container
+    .setting-section
+    > .card:has(.addresses)
+    > .content:has(.addresses),
+  html.lear-cinema.lear-page-settings
+    #settings-container
+    .setting-section
+    > .card:has(.addresses)
+    > .content:has(.addresses)
+    > h6 {
+    grid-column: 1 !important;
+  }
+}
+
+/* Recent albums reuse the gallery shell and cards; only the short list uses rows. */
+html.lear-cinema.lear-page-recent .lear-recent-albums-browser {
+  min-height: 0 !important;
+  padding-bottom: 0 !important;
+  background: transparent !important;
+}
+
+html.lear-cinema.lear-page-recent .lear-recent-album-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)) !important;
+  columns: auto !important;
+  align-items: start !important;
+  gap: 16px !important;
+}
+
+html.lear-cinema.lear-page-recent .lear-recent-album-grid .lear-album-card {
+  margin: 0 !important;
+}
+
+@media (max-width: 620px) {
+  html.lear-cinema.lear-page-recent .lear-recent-album-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+}
+
+/* One extra tab only changes the capsule width; item height and spacing stay intact. */
+@media (min-width: 541px) {
+  html.lear-cinema .lear-top-pill {
+    width: max-content !important;
+    min-width: 360px !important;
+    max-width: calc(100vw - 24px) !important;
+  }
+}
+
+@media (max-width: 540px) {
+  html.lear-cinema .lear-top-pill {
+    width: auto !important;
+  }
+
+  html.lear-cinema .lear-top-pill a:nth-of-type(3) {
+    display: flex !important;
+  }
+
+  html.lear-cinema .lear-top-pill a:nth-of-type(4),
+  html.lear-cinema .lear-top-pill a:nth-of-type(5) {
+    display: none !important;
+  }
+
+}
+
+/* Scene albums use the same photo-grid language as the main LEAR gallery. */
+html.lear-cinema.lear-page-scene-detail .scene-galleries[hidden] {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .tab-pane.lear-scene-gallery-active
+  > :not(.lear-scene-gallery-browser) {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-scene-detail .lear-scene-gallery-browser {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  min-height: 360px !important;
+  margin: 0 !important;
+  padding: 4px 0 34px !important;
+  color: #fff !important;
+  background: #050506 !important;
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .lear-scene-gallery-browser
+  .lear-gallery-heading {
+  width: 100% !important;
+  min-height: 74px !important;
+  margin: 0 0 18px !important;
+  padding: 6px 0 14px !important;
+  align-items: flex-end !important;
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .lear-scene-gallery-browser
+  .lear-gallery-heading
+  h1 {
+  margin-top: 2px !important;
+  font-size: clamp(1.35rem, 2.2vw, 1.9rem) !important;
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .lear-scene-gallery-browser
+  .lear-photo-grid {
+  width: 100% !important;
+  max-width: none !important;
+  columns: 4 210px !important;
+  column-gap: 10px !important;
+}
+
+html.lear-cinema.lear-page-scene-detail
+  .lear-scene-gallery-browser
+  .lear-gallery-loading,
+html.lear-cinema.lear-page-scene-detail
+  .lear-scene-gallery-browser
+  .lear-gallery-error {
+  min-height: 320px !important;
+}
+
+@media (max-width: 620px) {
+  html.lear-cinema.lear-page-scene-detail
+    .lear-scene-gallery-browser
+    .lear-photo-grid {
+    columns: 2 !important;
+  }
+}
+
+/* Folder-backed scene filters shared by Recently Added and Watching. */
+html.lear-cinema.lear-page-scenes .lear-scene-folder-filters {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 46px !important;
+  margin: 0 0 24px !important;
+  padding: 0 !important;
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+}
+
+html.lear-cinema.lear-page-scenes
+  .scene-list
+  .sidebar-pane-content
+  > .row.justify-content-center {
+  grid-row: 3 !important;
+}
+
+html.lear-cinema.lear-page-scenes .scene-list .filtered-list-toolbar {
+  grid-row: 4 !important;
+}
+
+html.lear-cinema.lear-page-scenes .scene-list .filter-tags {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-scenes .scene-list .lear-header-pagination {
+  grid-column: 1 / -1 !important;
+  grid-row: 5 !important;
+}
+
+html.lear-cinema.lear-page-entity-detail .lear-header-pagination {
+  grid-column: 1 / -1 !important;
+  grid-row: 3 !important;
+}
+
+html.lear-cinema .lear-folder-loading {
+  display: inline-flex !important;
+  min-height: 38px !important;
+  align-items: center !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 13px !important;
+}
+
+/* Replace the unfinished native gallery carousel on the home page. */
+html.lear-cinema.lear-page-home .gallery-recommendations[hidden] {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-home .lear-home-gallery-row {
+  width: 100% !important;
+  margin: 0 0 42px !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-home .lear-home-section-head {
+  display: flex !important;
+  min-height: 58px !important;
+  padding: 0 2px 14px !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+}
+
+html.lear-cinema.lear-page-home .lear-home-section-head h2 {
+  margin: 4px 0 0 !important;
+  color: #fff !important;
+  font-size: clamp(20px, 1.35vw, 26px) !important;
+  font-weight: 760 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.035em !important;
+}
+
+html.lear-cinema.lear-page-home .lear-home-section-head > a {
+  display: inline-flex !important;
+  min-height: 38px !important;
+  padding: 0 2px !important;
+  align-items: center !important;
+  color: rgba(255, 255, 255, 0.62) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+html.lear-cinema.lear-page-home .lear-home-section-head > a:hover {
+  color: #fff !important;
+}
+
+html.lear-cinema.lear-page-home .lear-home-album-grid {
+  display: grid !important;
+  width: 100% !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  gap: 16px !important;
+}
+
+html.lear-cinema.lear-page-home .lear-home-album-card {
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  aspect-ratio: 16 / 10 !important;
+  border-radius: 18px !important;
+}
+
+html.lear-cinema.lear-page-home .lear-home-album-card > img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+@media (max-width: 1400px) {
+  html.lear-cinema.lear-page-home .lear-home-album-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  html.lear-cinema.lear-page-home .lear-home-album-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  html.lear-cinema.lear-page-home .lear-home-album-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+}
+
+/* 2026-08-09: performer-linked galleries and precisely centered carousel arrows. */
+html.lear-cinema.lear-page-entity-detail.lear-page-performers .detail-header {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-entity-detail.lear-page-performers
+  .performer-tabs
+  .lear-performer-gallery-tab {
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+html.lear-cinema.lear-page-entity-detail.lear-page-performers
+  .performer-tabs.lear-performer-gallery-active
+  > .tab-content {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-entity-detail.lear-page-performers
+  .lear-performer-gallery-panel[hidden] {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-entity-detail.lear-page-performers
+  .lear-performer-gallery-panel {
+  display: block !important;
+  width: 100% !important;
+  padding: 28px 0 48px !important;
+}
+
+html.lear-cinema.lear-page-entity-detail.lear-page-performers
+  .lear-performer-album-grid {
+  display: grid !important;
+  max-width: none !important;
+  margin: 0 !important;
+  columns: auto !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+html.lear-cinema.lear-page-entity-detail.lear-page-performers
+  .lear-performer-album-grid
+  .lear-album-card {
+  height: auto !important;
+  margin: 0 !important;
+  aspect-ratio: 16 / 10 !important;
+}
+
+html.lear-cinema.lear-page-entity-detail.lear-page-performers
+  .lear-performer-album-grid
+  .lear-album-card
+  > img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-arrow {
+  display: grid !important;
+  padding: 0 !important;
+  place-items: center !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-arrow::before {
+  display: block !important;
+  width: 13px !important;
+  height: 13px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-top: 3px solid #fff !important;
+  border-right: 3px solid #fff !important;
+  color: transparent !important;
+  content: "" !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  opacity: 0.94 !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-prev::before {
+  transform: translateX(2px) rotate(-135deg) !important;
+}
+
+html.lear-cinema.lear-page-home .main .slick-next::before {
+  transform: translateX(-2px) rotate(45deg) !important;
+}
+
+@media (max-width: 1200px) {
+  html.lear-cinema.lear-page-entity-detail.lear-page-performers
+    .lear-performer-album-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  html.lear-cinema.lear-page-entity-detail.lear-page-performers
+    .lear-performer-album-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 620px) {
+  html.lear-cinema.lear-page-entity-detail.lear-page-performers
+    .lear-performer-album-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+}

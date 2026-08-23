@@ -1,0 +1,8 @@
+name: Theme - LEAR Cinema
+description: Cinematic black interface with a large featured scene and landscape library cards.
+version: 1.0.0
+ui:
+  javascript:
+    - Theme-LEARCinema.js
+  css:
+    - Theme-LEARCinema.css
