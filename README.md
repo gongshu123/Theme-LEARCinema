@@ -1,5 +1,7 @@
 # Theme LEAR Cinema
 
+![Theme LEAR Cinema preview](assets/preview.png)
+
 A cinematic dark theme for [Stash](https://github.com/stashapp/stash), focused on large landscape artwork, compact media cards, and consistent navigation across scene, performer, studio, and gallery pages.
 
 ## Features
@@ -45,4 +47,3 @@ Released under the [MIT License](LICENSE).
 LEAR Cinema 是一个面向 Stash 的电影化深色主题，提供横向媒体卡片、场景 Hero、详情页样式，以及短片、演员、工作室和图库页面统一的翻页布局。
 
 安装时将整个 `Theme-LEARCinema` 文件夹复制到 Stash 的 `plugins` 目录，在插件设置中重新加载并启用主题即可。
-
