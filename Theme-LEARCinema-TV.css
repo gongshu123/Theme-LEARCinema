@@ -1,0 +1,899 @@
+html.lear-tv-mode,
+html.lear-tv-mode body {
+  margin: 0 !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  overflow-x: hidden !important;
+  background: #050607 !important;
+  color: #fff !important;
+}
+
+html.lear-tv-mode body > #root {
+  display: none !important;
+}
+
+html.lear-tv-mode.lear-tv-detail-open,
+html.lear-tv-mode.lear-tv-detail-open body {
+  height: 100% !important;
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+}
+
+.lear-tv-app {
+  --tv-safe-x: clamp(60px, 4.2vw, 88px);
+  --tv-safe-y: clamp(42px, 4vh, 64px);
+  --tv-accent: #f052cf;
+  --tv-focus: #fff;
+  position: relative;
+  z-index: 2147483000;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(4, 7, 8, 0.05) 0, rgba(4, 7, 8, 0.5) 48vh, #050607 76vh),
+    radial-gradient(circle at 74% 15%, rgba(84, 210, 175, 0.16), transparent 38%),
+    #050607;
+  color: #fff;
+  font-family: Inter, "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  font-size: clamp(24px, 1.55vw, 32px);
+  line-height: 1.35;
+}
+
+.lear-tv-app::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: 0 0 auto;
+  height: min(78vh, 900px);
+  background-image: var(--lear-tv-hero);
+  background-position: center 22%;
+  background-size: cover;
+  opacity: 0.64;
+  filter: saturate(0.82);
+  transition: background-image 240ms ease;
+}
+
+.lear-tv-app::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 auto;
+  height: min(80vh, 930px);
+  background:
+    linear-gradient(90deg, rgba(3, 5, 6, 0.97) 0%, rgba(3, 5, 6, 0.78) 35%, rgba(3, 5, 6, 0.2) 68%, rgba(3, 5, 6, 0.28) 100%),
+    linear-gradient(0deg, #050607 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.lear-tv-header {
+  position: absolute;
+  z-index: 20;
+  top: var(--tv-safe-y);
+  left: var(--tv-safe-x);
+  right: var(--tv-safe-x);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(28px, 3vw, 64px);
+}
+
+.lear-tv-brand {
+  color: var(--tv-accent);
+  font-size: clamp(26px, 1.8vw, 38px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.lear-tv-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1vw, 20px);
+}
+
+.lear-tv-nav-item,
+.lear-tv-exit {
+  box-sizing: border-box;
+  min-height: 54px;
+  padding: 10px 22px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: rgba(7, 11, 12, 0.38);
+  color: rgba(255, 255, 255, 0.76);
+  font: inherit;
+  font-size: clamp(20px, 1.2vw, 26px);
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+  backdrop-filter: blur(14px);
+}
+
+.lear-tv-exit {
+  font-size: clamp(18px, 1vw, 23px);
+}
+
+.lear-tv-content {
+  padding-bottom: 12vh;
+}
+
+.lear-tv-hero {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(77vh, 900px);
+  padding: calc(var(--tv-safe-y) + 84px) var(--tv-safe-x) 5vh;
+}
+
+.lear-tv-hero-copy {
+  width: min(49vw, 930px);
+}
+
+.lear-tv-kicker {
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(20px, 1.25vw, 27px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lear-tv-hero-title,
+.lear-tv-details-title {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: #fff;
+  font-size: clamp(58px, 5vw, 104px);
+  font-weight: 780;
+  line-height: 1.06;
+  padding-bottom: 0.08em;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.lear-tv-hero-meta {
+  display: -webkit-box;
+  margin-top: 24px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(22px, 1.45vw, 31px);
+  font-weight: 650;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.lear-tv-hero-description,
+.lear-tv-details-description {
+  display: -webkit-box;
+  margin: 24px 0 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(24px, 1.45vw, 31px);
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.lear-tv-hero-actions {
+  display: flex;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.lear-tv-button {
+  box-sizing: border-box;
+  min-width: 196px;
+  min-height: 66px;
+  padding: 14px 30px;
+  border: 3px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(11, 13, 14, 0.6);
+  color: #fff;
+  font: inherit;
+  font-size: clamp(24px, 1.45vw, 31px);
+  font-weight: 750;
+  line-height: 1.1;
+  text-align: center;
+  text-decoration: none;
+  backdrop-filter: blur(14px);
+}
+
+.lear-tv-button-primary {
+  border-color: #fff;
+  background: #fff;
+  color: #090a0b !important;
+}
+
+.lear-tv-row {
+  position: relative;
+  padding: 24px 0 36px;
+  scroll-margin-block: 14vh;
+}
+
+.lear-tv-row-title {
+  margin: 0 var(--tv-safe-x) 24px;
+  color: #fff;
+  font-size: clamp(34px, 2.2vw, 48px);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.lear-tv-rail {
+  display: flex;
+  gap: clamp(22px, 1.65vw, 36px);
+  padding: 16px var(--tv-safe-x) 34px;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.lear-tv-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.lear-tv-card {
+  position: relative;
+  flex: 0 0 clamp(300px, 22vw, 470px);
+  box-sizing: border-box;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 4px solid transparent;
+  border-radius: 22px;
+  outline: 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  transform-origin: center;
+  transition: transform 150ms ease, border-color 150ms ease, filter 150ms ease, box-shadow 150ms ease;
+}
+
+.lear-tv-card-art {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 17px;
+  background: #171b1d;
+}
+
+.lear-tv-card-art img,
+.lear-tv-person-card img,
+.lear-tv-studio-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lear-tv-card-copy {
+  display: block;
+  padding: 16px 4px 2px;
+}
+
+.lear-tv-card-title {
+  display: block;
+  overflow: hidden;
+  color: #fff;
+  font-size: clamp(24px, 1.45vw, 31px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lear-tv-card-meta {
+  display: block;
+  margin-top: 5px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: clamp(19px, 1.12vw, 24px);
+  font-weight: 560;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lear-tv-heart {
+  position: absolute;
+  top: 15px;
+  right: 17px;
+  color: #ff4f75;
+  font-size: 36px;
+  line-height: 1;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.75));
+}
+
+.lear-tv-progress {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  left: 12px;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.lear-tv-progress-value {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--tv-accent);
+}
+
+.lear-tv-person-card,
+.lear-tv-studio-card {
+  flex-basis: clamp(220px, 15vw, 320px);
+  padding: 10px 10px 18px;
+  text-align: center;
+}
+
+.lear-tv-person-card img {
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #171b1d;
+  object-fit: cover;
+  object-position: center top;
+  transition: outline-color 150ms ease, box-shadow 150ms ease;
+}
+
+.lear-tv-person-card:focus,
+.lear-tv-person-card:focus-visible {
+  border-color: transparent !important;
+  outline: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.lear-tv-person-card:focus img,
+.lear-tv-person-card:focus-visible img {
+  outline: 5px solid var(--tv-focus);
+  outline-offset: 6px;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.16), 0 20px 46px rgba(0, 0, 0, 0.55);
+}
+
+.lear-tv-person-card .lear-tv-card-title,
+.lear-tv-studio-card .lear-tv-card-title {
+  margin-top: 15px;
+  padding-bottom: 0.12em;
+  line-height: 1.32;
+}
+
+.lear-tv-studio-card img {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.92);
+  object-fit: contain;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.lear-tv-empty {
+  box-sizing: border-box;
+  min-width: min(620px, 70vw);
+  padding: 34px 38px;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.58);
+  font-weight: 600;
+}
+
+.lear-tv-gamepad-status {
+  position: fixed;
+  z-index: 120;
+  right: var(--tv-safe-x);
+  bottom: var(--tv-safe-y);
+  max-width: min(620px, 70vw);
+  padding: 15px 22px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.26);
+  border-radius: 999px;
+  background: rgba(8, 10, 12, 0.88);
+  color: #fff;
+  font-size: clamp(18px, 1.05vw, 23px);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.46);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.lear-tv-gamepad-status.is-idle {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.lear-tv-focusable:focus-visible,
+.lear-tv-focusable:focus {
+  z-index: 8;
+  border-color: var(--tv-focus);
+  outline: 0;
+  color: #fff;
+  filter: brightness(1.13);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.16), 0 20px 46px rgba(0, 0, 0, 0.55);
+  transform: scale(1.065);
+}
+
+.lear-tv-nav-item:focus,
+.lear-tv-exit:focus {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.lear-tv-button:focus {
+  transform: scale(1.055);
+}
+
+.lear-tv-button-primary:focus {
+  background: var(--tv-accent);
+  border-color: #fff;
+  color: #fff !important;
+}
+
+.lear-tv-details {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  box-sizing: border-box;
+  padding: var(--tv-safe-y) var(--tv-safe-x) calc(var(--tv-safe-y) + 20px);
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(3, 4, 5, 0.97) 0%, rgba(3, 4, 5, 0.78) 46%, rgba(3, 4, 5, 0.22) 100%),
+    linear-gradient(0deg, rgba(3, 4, 5, 0.94), transparent 60%),
+    var(--lear-tv-detail-art) center / cover no-repeat;
+  animation: lear-tv-reveal 180ms ease-out both;
+}
+
+.lear-tv-entity-view {
+  position: fixed;
+  z-index: 90;
+  inset: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: var(--tv-safe-y) 0;
+  background:
+    radial-gradient(circle at 15% 12%, rgba(240, 82, 207, 0.13), transparent 34%),
+    #050607;
+  animation: lear-tv-reveal 180ms ease-out both;
+}
+
+.lear-tv-entity-profile {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  grid-template-rows: auto auto auto;
+  align-items: end;
+  column-gap: 34px;
+  box-sizing: border-box;
+  margin: 0 var(--tv-safe-x) 12px;
+}
+
+.lear-tv-entity-profile img {
+  grid-row: 1 / 4;
+  width: 190px;
+  height: 190px;
+  border-radius: 22px;
+  background: #171b1d;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.lear-tv-entity-view.is-studio .lear-tv-entity-profile img {
+  box-sizing: border-box;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.94);
+  object-fit: contain;
+  object-position: center;
+}
+
+.lear-tv-entity-profile .lear-tv-kicker {
+  margin-bottom: 6px;
+}
+
+.lear-tv-entity-title {
+  margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  font-size: clamp(42px, 3.5vw, 68px);
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.lear-tv-entity-meta {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: clamp(20px, 1.2vw, 26px);
+  font-weight: 600;
+}
+
+.lear-tv-entity-view .lear-tv-row {
+  padding-top: 8px;
+}
+
+.lear-tv-entity-view .lear-tv-row-title {
+  margin-bottom: 10px;
+}
+
+.lear-tv-entity-view .lear-tv-rail {
+  --tv-entity-gap: clamp(22px, 1.65vw, 36px);
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, max-content);
+  grid-auto-columns: calc((100vw - (2 * var(--tv-safe-x)) - (4 * var(--tv-entity-gap))) / 5);
+  gap: var(--tv-entity-gap);
+  align-content: start;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.lear-tv-entity-view .lear-tv-scene-card {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-height: 900px) {
+  .lear-tv-entity-profile {
+    grid-template-columns: 170px 1fr;
+  }
+
+  .lear-tv-entity-profile img {
+    width: 170px;
+    height: 170px;
+  }
+
+  .lear-tv-entity-view .lear-tv-rail {
+    padding-bottom: 12px;
+  }
+}
+
+.lear-tv-details-copy {
+  width: min(58vw, 1050px);
+}
+
+.lear-tv-details-title {
+  font-size: clamp(54px, 4.4vw, 92px);
+}
+
+.lear-tv-details-description {
+  -webkit-line-clamp: 5;
+}
+
+.lear-tv-details-copy.is-expanded {
+  width: min(68vw, 1220px);
+  padding-right: 24px;
+  overflow: visible;
+}
+
+.lear-tv-details-copy.is-expanded .lear-tv-details-description {
+  -webkit-line-clamp: 6;
+}
+
+.lear-tv-details-cast {
+  display: none;
+  margin: 22px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(22px, 1.3vw, 28px);
+  line-height: 1.45;
+}
+
+.lear-tv-details-copy.is-expanded .lear-tv-details-cast {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.lear-tv-details .lear-tv-hero-actions {
+  gap: 26px;
+}
+
+.lear-tv-details .lear-tv-button {
+  min-width: 230px;
+  border-width: 4px;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.lear-tv-details .lear-tv-button:focus,
+.lear-tv-details .lear-tv-button:focus-visible {
+  border-color: #fff !important;
+  outline: 5px solid rgba(255, 255, 255, 0.32) !important;
+  outline-offset: 5px !important;
+  background: var(--tv-accent) !important;
+  color: #fff !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.62) !important;
+  transform: scale(1.07) !important;
+}
+
+.lear-tv-details-close {
+  position: absolute;
+  top: var(--tv-safe-y);
+  right: var(--tv-safe-x);
+  width: 68px;
+  height: 68px;
+  padding: 0;
+  border: 3px solid rgba(255, 255, 255, 0.58);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.42);
+  color: #fff;
+  font: inherit;
+  font-size: 48px;
+  line-height: 0.8;
+}
+
+.lear-tv-player-shell {
+  position: fixed;
+  z-index: 220;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+}
+
+.lear-tv-player-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  object-fit: contain;
+}
+
+.lear-tv-player-controls {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 120px clamp(48px, 4vw, 88px) clamp(34px, 4vh, 62px);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.78) 48%, transparent 100%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(24px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.lear-tv-player-controls.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.lear-tv-player-title {
+  margin: 0 0 22px;
+  overflow: hidden;
+  color: #fff;
+  font-size: clamp(28px, 2vw, 44px);
+  font-weight: 750;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lear-tv-player-timeline-wrap {
+  position: relative;
+  height: 14px;
+  overflow: visible;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.lear-tv-player-timeline-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  border-radius: 999px;
+  background: #f4f4f4;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.22);
+}
+
+.lear-tv-player-timeline-fill::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -12px;
+  width: 26px;
+  height: 26px;
+  border: 5px solid #fff;
+  border-radius: 50%;
+  background: #4b4e54;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%);
+}
+
+.lear-tv-player-timeline {
+  position: absolute;
+  z-index: 2;
+  inset: -15px 0;
+  width: 100%;
+  height: 44px;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.lear-tv-player-actions {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto 1fr;
+  align-items: center;
+  gap: clamp(14px, 1.2vw, 26px);
+  margin-top: 24px;
+}
+
+.lear-tv-player-control {
+  min-width: 82px;
+  min-height: 64px;
+  padding: 10px 20px;
+  border: 3px solid rgba(255, 255, 255, 0.42);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font: inherit;
+  font-size: clamp(22px, 1.35vw, 30px);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.lear-tv-player-control:hover,
+.lear-tv-player-control:active {
+  border-color: #fff;
+  background: #fff;
+  color: #08090a;
+}
+
+.lear-tv-player-toggle {
+  min-width: 92px;
+  border-color: #fff;
+  background: #fff;
+  color: #08090a;
+  font-size: clamp(28px, 1.8vw, 38px);
+}
+
+.lear-tv-player-back {
+  min-width: 126px;
+}
+
+.lear-tv-player-time {
+  min-width: 210px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(22px, 1.3vw, 29px);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lear-tv-player-hint {
+  justify-self: end;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: clamp(18px, 1.05vw, 24px);
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.lear-tv-player-seek-feedback {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  min-width: 180px;
+  padding: 24px 34px;
+  border: 3px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: clamp(28px, 2vw, 42px);
+  font-weight: 800;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.92);
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.lear-tv-player-seek-feedback.is-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@media (max-width: 1366px) {
+  .lear-tv-player-controls {
+    padding-inline: 42px;
+    padding-bottom: 28px;
+  }
+
+  .lear-tv-player-hint {
+    display: none;
+  }
+
+  .lear-tv-player-actions {
+    grid-template-columns: auto auto auto auto 1fr;
+  }
+}
+
+.lear-tv-loading,
+.lear-tv-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+  gap: 24px;
+  padding: var(--tv-safe-y) var(--tv-safe-x);
+  text-align: center;
+}
+
+.lear-tv-loading span {
+  width: 68px;
+  height: 68px;
+  border: 7px solid rgba(255, 255, 255, 0.18);
+  border-top-color: var(--tv-accent);
+  border-radius: 50%;
+  animation: lear-tv-spin 800ms linear infinite;
+}
+
+.lear-tv-error h1 {
+  margin: 0;
+  font-size: clamp(52px, 4vw, 82px);
+}
+
+.lear-tv-error p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+html.lear-tv-player-mode .lear-top-pill {
+  display: none !important;
+}
+
+@keyframes lear-tv-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes lear-tv-reveal {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lear-tv-app *,
+  .lear-tv-app *::before,
+  .lear-tv-app *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 1366px) {
+  .lear-tv-app {
+    --tv-safe-x: 54px;
+    --tv-safe-y: 34px;
+  }
+
+  .lear-tv-header {
+    gap: 20px;
+  }
+
+  .lear-tv-nav-item {
+    padding-inline: 15px;
+  }
+}

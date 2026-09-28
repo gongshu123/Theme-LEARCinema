@@ -4,5 +4,7 @@ version: 1.0.0
 ui:
   javascript:
     - Theme-LEARCinema.js
+    - Theme-LEARCinema-TV.js
   css:
     - Theme-LEARCinema.css
+    - Theme-LEARCinema-TV.css

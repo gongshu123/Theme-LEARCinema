@@ -6,9 +6,13 @@
   const SOURCE_CARD_CLASS = "lear-source-card";
   const SEARCH_OVERLAY_CLASS = "lear-search-overlay";
   const RECENT_SCENES_HREF = "/scenes?sortby=created_at&sortdir=desc";
+  const WATCHING_SCENES_HREF =
+    "/scenes?sortby=last_played_at&sortdir=desc#learWatching";
+  const FAVORITE_FIELD = "lear_favorite";
   const PAGE_CLASSES = [
     "lear-page-home",
     "lear-page-recent",
+    "lear-page-watching",
     "lear-page-scenes",
     "lear-page-scene-detail",
     "lear-page-library-list",
@@ -18,6 +22,9 @@
     "lear-page-studios",
     "lear-page-entity-detail",
     "lear-page-settings",
+    "lear-page-tool",
+    "lear-page-scene-filename-parser",
+    "lear-page-scene-duplicate-checker",
   ];
 
   document.documentElement.classList.add(ROOT_CLASS);
@@ -30,6 +37,7 @@
   let imageLibraryPromise = null;
   let sceneFoldersPromise = null;
   let homeGalleriesPromise = null;
+  let watchingScenesPromise = null;
   const performerGalleriesPromises = new Map();
   let customGalleryPath = "";
   let searchRequestId = 0;
@@ -621,7 +629,7 @@
     pill.setAttribute("aria-label", "影院快捷导航");
     pill.append(
       createLink(RECENT_SCENES_HREF, "最近增加"),
-      createLink("/scenes", "正在观看", "active"),
+      createLink(WATCHING_SCENES_HREF, "正在观看", "active"),
       createLink("/images", "图库"),
       createLink(
         "/performers?sortby=scenes_count&sortdir=desc",
@@ -652,6 +660,13 @@
     );
   }
 
+  function isWatchingScenesRoute() {
+    return (
+      window.location.pathname === "/scenes" &&
+      window.location.hash === "#learWatching"
+    );
+  }
+
   function shouldBuildScenesHero() {
     if (window.location.pathname !== "/scenes") {
       return false;
@@ -670,10 +685,12 @@
 
     if (/^\/scenes\/[^/]+/.test(path)) {
       root.classList.add("lear-page-scene-detail");
-      activeHref =
-        new URLSearchParams(window.location.search).get("qsort") === "created_at"
+      const params = new URLSearchParams(window.location.search);
+      activeHref = window.location.hash === "#learWatching"
+        ? WATCHING_SCENES_HREF
+        : params.get("qsort") === "created_at"
           ? RECENT_SCENES_HREF
-          : "/scenes";
+          : "";
     } else if (path === "/") {
       root.classList.add("lear-page-home");
     } else if (path === "/scenes") {
@@ -681,8 +698,11 @@
       if (isRecentScenesRoute()) {
         root.classList.add("lear-page-recent");
         activeHref = RECENT_SCENES_HREF;
+      } else if (isWatchingScenesRoute()) {
+        root.classList.add("lear-page-watching");
+        activeHref = WATCHING_SCENES_HREF;
       } else {
-        activeHref = "/scenes";
+        activeHref = "";
       }
     } else if (path === "/performers") {
       root.classList.add("lear-page-library-list", "lear-page-performers");
@@ -716,6 +736,10 @@
       activeHref = "/studios?sortby=scenes_count&sortdir=desc";
     } else if (path.startsWith("/settings")) {
       root.classList.add("lear-page-settings");
+    } else if (path === "/sceneFilenameParser") {
+      root.classList.add("lear-page-tool", "lear-page-scene-filename-parser");
+    } else if (path === "/sceneDuplicateChecker") {
+      root.classList.add("lear-page-tool", "lear-page-scene-duplicate-checker");
     }
 
     pill.querySelectorAll("a").forEach((link) => {
@@ -768,15 +792,19 @@
     const getSceneData = (card) => {
       const sceneLink = card.querySelector(".scene-card-link");
       const titleLink = card.querySelector(".card-section > a");
+      const rawTitle =
+        card.querySelector(".card-section-title")?.textContent?.trim() ||
+        "最近添加";
+      const title = rawTitle
+        .replace(/\.(?:mp4|mkv|avi|mov|wmv|m4v|webm)$/i, "")
+        .trim();
       return {
-        title:
-          card.querySelector(".card-section-title")?.textContent?.trim() ||
-          "最近添加",
+        title,
         date:
           card.querySelector(".scene-card__date")?.textContent?.trim() || "",
         description:
           card.querySelector(".scene-card__description")?.textContent?.trim() ||
-          "从你的媒体库继续观看。",
+          "尚未匹配简介。",
         studio:
           card.querySelector(".studio-overlay img")?.getAttribute("alt") ||
           "FEATURED",
@@ -850,8 +878,6 @@
     );
     actions.append(play, details);
 
-    content.append(kicker, heroTitle, meta, copy, actions);
-
     const thumbnails = document.createElement("div");
     thumbnails.className = "lear-hero-thumbnails";
     cards.slice(0, 5).forEach((card, index) => {
@@ -882,11 +908,15 @@
       thumbnails.append(thumb);
     });
 
-    hero.append(backgroundLink, content, thumbnails);
+    content.append(kicker, heroTitle, meta, copy, actions, thumbnails);
+    hero.append(backgroundLink, content);
   }
 
   function getLibraryHeaderCopy() {
     const path = window.location.pathname;
+    if (isWatchingScenesRoute()) {
+      return { kicker: "WATCHING", title: "正在观看" };
+    }
     if (isRecentScenesRoute()) {
       return { kicker: "RECENTLY ADDED", title: "最近增加的视频" };
     }
@@ -897,6 +927,279 @@
       return { kicker: "STUDIOS", title: "工作室" };
     }
     return { kicker: "MY LIBRARY", title: "影片库" };
+  }
+
+  function favoriteValue(scene) {
+    const value = scene?.custom_fields?.[FAVORITE_FIELD];
+    return value === true || value === 1 || value === "1" || value === "true";
+  }
+
+  function sceneDuration(scene) {
+    return Number(scene?.files?.[0]?.duration || 0);
+  }
+
+  function isUnfinishedScene(scene) {
+    const resume = Number(scene?.resume_time || 0);
+    const duration = sceneDuration(scene);
+    return resume > 0 && duration > 0 && resume < duration;
+  }
+
+  function formatDuration(seconds) {
+    const total = Math.max(0, Math.floor(Number(seconds) || 0));
+    const hours = Math.floor(total / 3600);
+    const minutes = Math.floor((total % 3600) / 60);
+    const remaining = total % 60;
+    return hours
+      ? `${hours}:${String(minutes).padStart(2, "0")}:${String(remaining).padStart(2, "0")}`
+      : `${minutes}:${String(remaining).padStart(2, "0")}`;
+  }
+
+  function watchingSceneHref(scene) {
+    return `/scenes/${scene.id}#learWatching`;
+  }
+
+  function loadWatchingScenes() {
+    if (!watchingScenesPromise) {
+      watchingScenesPromise = graphql(`
+        query LearWatchingScenes {
+          findScenes(filter: { per_page: -1 }) {
+            scenes {
+              id title details date last_played_at resume_time custom_fields
+              paths { screenshot }
+              files { basename duration width height }
+              studio { id name image_path }
+            }
+          }
+        }
+      `).then(({ findScenes }) =>
+        findScenes.scenes
+          .filter((scene) => favoriteValue(scene) || isUnfinishedScene(scene))
+          .sort((left, right) => {
+            const favoriteDifference = Number(favoriteValue(right)) - Number(favoriteValue(left));
+            if (favoriteDifference) return favoriteDifference;
+            const playedDifference =
+              mediaTimestamp(right.last_played_at) - mediaTimestamp(left.last_played_at);
+            if (playedDifference) return playedDifference;
+            return String(left.title || "").localeCompare(String(right.title || ""), "zh-CN");
+          })
+      );
+    }
+    return watchingScenesPromise;
+  }
+
+  function createWatchingCard(scene) {
+    const card = document.createElement("article");
+    card.className = "scene-card zoom-1 grid-card card lear-watching-card";
+    card.dataset.sceneId = scene.id;
+    const href = watchingSceneHref(scene);
+    const duration = sceneDuration(scene);
+    const resume = Number(scene.resume_time || 0);
+    const progress = duration > 0 ? Math.min(100, Math.max(0, (resume / duration) * 100)) : 0;
+    const title = String(scene.title || scene.files?.[0]?.basename || `视频 ${scene.id}`)
+      .replace(/\.(?:mp4|mkv|avi|mov|wmv|m4v|webm)$/i, "")
+      .trim();
+
+    const media = document.createElement("div");
+    media.className = "video-section thumbnail-section";
+    const mediaLink = createLink(href, "", "scene-card-link");
+    mediaLink.setAttribute("aria-label", title);
+    const preview = document.createElement("div");
+    preview.className = "scene-card-preview";
+    const image = document.createElement("img");
+    image.className = "scene-card-preview-image";
+    image.loading = "lazy";
+    image.src = scene.paths?.screenshot || "";
+    image.alt = "";
+    preview.append(image);
+    mediaLink.append(preview);
+    const specs = document.createElement("div");
+    specs.className = "scene-specs-overlay";
+    specs.innerHTML = `<span class="overlay-duration">${formatDuration(duration)}</span>`;
+    mediaLink.append(specs);
+    media.append(mediaLink);
+
+    if (scene.studio) {
+      const studio = document.createElement("div");
+      studio.className = "studio-overlay";
+      const studioLink = createLink(`/studios/${scene.studio.id}`, "");
+      const logo = document.createElement("img");
+      logo.className = "image-thumbnail";
+      logo.loading = "lazy";
+      logo.src = scene.studio.image_path || "";
+      logo.alt = scene.studio.name || "";
+      studioLink.append(logo);
+      studio.append(studioLink);
+      media.append(studio);
+    }
+
+    if (favoriteValue(scene)) {
+      const favorite = document.createElement("span");
+      favorite.className = "lear-watching-favorite";
+      favorite.setAttribute("aria-label", "已收藏");
+      favorite.innerHTML = '<span aria-hidden="true">♥</span>';
+      media.append(favorite);
+    }
+
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar";
+    progressBar.title = `${Math.round(progress)}%`;
+    const indicator = document.createElement("div");
+    indicator.className = "progress-indicator";
+    indicator.style.width = `${progress}%`;
+    progressBar.append(indicator);
+    media.append(progressBar);
+
+    const section = document.createElement("div");
+    section.className = "card-section";
+    const titleLink = createLink(href, "");
+    const heading = document.createElement("h3");
+    heading.className = "card-section-title flex-aligned";
+    const truncated = document.createElement("span");
+    truncated.className = "TruncatedText";
+    truncated.textContent = title;
+    heading.append(truncated);
+    titleLink.append(heading);
+    const details = document.createElement("div");
+    details.className = "scene-card__details";
+    const date = document.createElement("span");
+    date.className = "scene-card__date";
+    date.textContent = favoriteValue(scene)
+      ? "已收藏"
+      : `${Math.round(progress)}% · ${formatDuration(Math.max(0, duration - resume))} 后播完`;
+    const description = document.createElement("div");
+    description.className = "TruncatedText scene-card__description";
+    description.textContent = scene.details || "";
+    details.append(date, description);
+    section.append(titleLink, details);
+    card.append(media, section);
+    return card;
+  }
+
+  function ensureWatchingLibrary(list, paneContent, nativeGrid) {
+    nativeGrid.hidden = true;
+    nativeGrid.classList.add("lear-watching-native-grid");
+    nativeGrid.setAttribute("aria-hidden", "true");
+    paneContent.querySelector(":scope > .lear-scene-folder-filters")?.remove();
+    paneContent.querySelectorAll(".lear-header-pagination").forEach((item) => item.remove());
+
+    let browser = paneContent.querySelector(":scope > .lear-watching-browser");
+    if (!browser) {
+      watchingScenesPromise = null;
+      browser = document.createElement("section");
+      browser.className = "lear-watching-browser";
+      browser.innerHTML = '<div class="lear-gallery-loading">正在整理收藏和未看完的视频…</div>';
+      paneContent.append(browser);
+    }
+    if (browser.dataset.state === "loading" || browser.dataset.state === "ready") return;
+    browser.dataset.state = "loading";
+
+    loadWatchingScenes()
+      .then((scenes) => {
+        if (!browser.isConnected || !isWatchingScenesRoute()) return;
+        if (!scenes.length) {
+          list.querySelector(`:scope > .${HERO_CLASS}`)?.remove();
+          browser.innerHTML = '<div class="lear-watching-empty">还没有收藏或未看完的视频。</div>';
+          browser.dataset.state = "ready";
+          return;
+        }
+        const grid = document.createElement("div");
+        grid.className = "lear-watching-grid";
+        const cards = scenes.map(createWatchingCard);
+        cards.forEach((card) => grid.append(card));
+        browser.replaceChildren(grid);
+        buildHero(list, cards);
+        browser.dataset.state = "ready";
+      })
+      .catch((error) => {
+        if (!browser.isConnected) return;
+        browser.innerHTML = '<div class="lear-watching-empty">正在观看列表加载失败，请刷新后重试。</div>';
+        browser.dataset.state = "error";
+        console.error("LEAR watching library failed", error);
+      });
+  }
+
+  function clearWatchingLibrary(paneContent, nativeGrid) {
+    nativeGrid.hidden = false;
+    nativeGrid.removeAttribute("aria-hidden");
+    nativeGrid.classList.remove("lear-watching-native-grid");
+    paneContent.querySelector(":scope > .lear-watching-browser")?.remove();
+  }
+
+  function applyPlayerFavoriteState(button, favorite) {
+    button.classList.toggle("is-favorite", favorite);
+    button.setAttribute("aria-pressed", String(favorite));
+    button.setAttribute("aria-label", favorite ? "取消收藏" : "收藏");
+    button.title = favorite ? "取消收藏" : "收藏";
+    button.querySelector(".vjs-control-text").textContent = favorite ? "取消收藏" : "收藏";
+  }
+
+  function ensurePlayerFavorite(player) {
+    const sceneId = window.location.pathname.match(/^\/scenes\/(\d+)/)?.[1];
+    const controlBar = player.querySelector(".vjs-control-bar");
+    const quality = controlBar?.querySelector(".vjs-source-selector");
+    if (!sceneId || !controlBar) return;
+
+    let button = controlBar.querySelector(".lear-player-favorite");
+    if (!button) {
+      button = document.createElement("button");
+      button.type = "button";
+      button.className = "vjs-control vjs-button lear-player-favorite";
+      button.innerHTML =
+        '<span class="lear-heart-icon" aria-hidden="true">♥</span><span class="vjs-control-text" aria-live="polite">收藏</span>';
+      const anchor = quality || controlBar.querySelector(".vjs-fullscreen-control");
+      if (anchor) anchor.insertAdjacentElement("beforebegin", button);
+      else controlBar.append(button);
+    }
+    if (button.dataset.sceneId === sceneId) return;
+    button.dataset.sceneId = sceneId;
+    button.dataset.state = "loading";
+    button.disabled = true;
+
+    graphql(`query LearFavoriteScene($id: ID!) {
+      findScene(id: $id) { id custom_fields }
+    }`, { id: sceneId })
+      .then(({ findScene }) => {
+        if (!button.isConnected || button.dataset.sceneId !== sceneId) return;
+        let favorite = favoriteValue(findScene);
+        applyPlayerFavoriteState(button, favorite);
+        button.disabled = false;
+        button.dataset.state = "ready";
+        button.onclick = async () => {
+          if (button.dataset.state === "saving") return;
+          const previous = favorite;
+          favorite = !favorite;
+          applyPlayerFavoriteState(button, favorite);
+          button.dataset.state = "saving";
+          button.disabled = true;
+          button.setAttribute("aria-busy", "true");
+          try {
+            const customFields = favorite
+              ? { partial: { [FAVORITE_FIELD]: true } }
+              : { remove: [FAVORITE_FIELD] };
+            const data = await graphql(`mutation LearFavoriteScene($input: SceneUpdateInput!) {
+              sceneUpdate(input: $input) { id custom_fields }
+            }`, { input: { id: sceneId, custom_fields: customFields } });
+            favorite = favoriteValue(data.sceneUpdate);
+            applyPlayerFavoriteState(button, favorite);
+            watchingScenesPromise = null;
+          } catch (error) {
+            favorite = previous;
+            applyPlayerFavoriteState(button, favorite);
+            console.error("LEAR favorite update failed", error);
+          } finally {
+            button.disabled = false;
+            button.removeAttribute("aria-busy");
+            button.dataset.state = "ready";
+          }
+        };
+      })
+      .catch((error) => {
+        if (!button.isConnected) return;
+        button.disabled = false;
+        button.dataset.state = "error";
+        button.setAttribute("aria-label", "收藏状态加载失败");
+        console.error("LEAR favorite load failed", error);
+      });
   }
 
   function ensureLibraryHeader(list, paneContent) {
@@ -1220,6 +1523,8 @@
     if (!tabs || !player || !row) {
       return;
     }
+
+    ensurePlayerFavorite(player);
 
     tabs.querySelector(":scope > .lear-detail-cover")?.remove();
 
@@ -1742,7 +2047,12 @@
     }
 
     ensureLibraryHeader(list, paneContent);
+    if (isScenes && isWatchingScenesRoute()) {
+      ensureWatchingLibrary(list, paneContent, grid);
+      return;
+    }
     if (isScenes) {
+      clearWatchingLibrary(paneContent, grid);
       ensureSceneFolderFilters(paneContent);
     }
     decorateLibraryCards(grid);
@@ -1778,5 +2088,6 @@
   }
 
   window.addEventListener("scroll", scheduleTopPillUpdate, { passive: true });
+  window.addEventListener("hashchange", scheduleLayout);
   scheduleLayout();
 })();

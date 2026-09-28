@@ -78,6 +78,291 @@ html.lear-cinema.lear-page-library-list.lear-page-galleries
   }
 }
 
+/* 2026-09-25: consistent density across the settings center.
+ * Stash wraps many simple rows in both a padded card and another padded group;
+ * keep one spacing layer so every settings page uses the same vertical rhythm. */
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-library
+  .setting-section:has(#delete-file-default)
+  > .card,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-tools
+  .setting-section
+  > .card,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card {
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card
+  > .setting-group {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card
+  > .setting-group
+  + .setting-group {
+  border-top: 1px solid rgba(255, 255, 255, 0.065) !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-library
+  .setting-section:has(#delete-file-default)
+  .setting,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card
+  .setting,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-tools
+  .setting-section
+  > .card
+  .setting {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  margin: 0 !important;
+  padding: 10px 18px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065) !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card
+  > .setting-group
+  > .setting:not(:first-child) {
+  padding-left: 30px !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-library
+  .setting-section:has(#delete-file-default)
+  > .card
+  > .setting:last-child,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card
+  > .setting:last-child,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card
+  > .setting-group:last-child
+  > .setting:last-child,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-tools
+  .setting-section
+  > .card
+  > .setting:last-child {
+  border-bottom: 0 !important;
+}
+
+/* Package manager: remove the duplicated card/package padding, while retaining
+ * a compact toolbar inset and readable table rows. */
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager-toolbar {
+  box-sizing: border-box !important;
+  min-height: 60px !important;
+  padding: 10px 16px !important;
+  gap: 8px !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager-table-container
+  th,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager-table-container
+  td {
+  padding: 10px 14px !important;
+  vertical-align: middle !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager-table-container
+  tr:has(> .border-row),
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager-table-container
+  .border-row {
+  height: 1px !important;
+  min-height: 1px !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager-no-results
+  td {
+  height: 42px !important;
+  padding-block: 8px !important;
+}
+
+@media (max-width: 760px) {
+  html.lear-cinema.lear-page-settings
+    #configuration-tabs-tabpane-library
+    .setting-section:has(#delete-file-default)
+    .setting,
+  html.lear-cinema.lear-page-settings
+    #configuration-tabs-tabpane-interface
+    .setting-section
+    > .card
+    .setting,
+  html.lear-cinema.lear-page-settings
+    #configuration-tabs-tabpane-tools
+    .setting-section
+    > .card
+    .setting {
+    padding: 10px 14px !important;
+  }
+
+  html.lear-cinema.lear-page-settings
+    #configuration-tabs-tabpane-interface
+    .setting-section
+    > .card
+    > .setting-group
+    > .setting:not(:first-child) {
+    padding-left: 20px !important;
+  }
+
+  html.lear-cinema.lear-page-settings
+    #configuration-tabs-tabpane-plugins
+    .package-manager-toolbar {
+    padding-inline: 12px !important;
+  }
+}
+
+/* FINAL PLUGIN LIST DENSITY CASCADE */
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  > .setting,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .setting-group
+  > .setting,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .collapsible-section
+  > .setting {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  margin: 0 !important;
+  padding: 10px 18px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065) !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .setting-group,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .collapsible-section {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .collapsible-section
+  > .setting {
+  padding-left: 30px !important;
+}
+
+/* Plugin list uses the same redundant group shell as other settings pages. */
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  > .setting,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .setting-group
+  > .setting,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .collapsible-section
+  > .setting {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  margin: 0 !important;
+  padding: 10px 18px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065) !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .setting-group,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .collapsible-section {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .collapsible-section
+  > .setting {
+  padding-left: 30px !important;
+}
+
 html.lear-cinema,
 html.lear-cinema body {
   min-height: 100%;
@@ -4491,6 +4776,151 @@ html.lear-cinema .video-js .vjs-menu-content .vjs-menu-item:last-child {
   border-radius: 0 0 13px 13px;
 }
 
+/* Player controls: match the playback-rate menu and replace source quality
+   selection with a persistent scene favorite. */
+html.lear-cinema video-js .vjs-volume-panel-vertical .vjs-volume-control,
+html.lear-cinema .video-js .vjs-volume-panel-vertical .vjs-volume-control {
+  overflow: hidden !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 14px !important;
+  background: rgba(34, 34, 39, 0.94) !important;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.42) !important;
+  clip-path: inset(0 round 14px);
+}
+
+html.lear-cinema.lear-page-scene-detail .vjs-source-selector {
+  display: none !important;
+}
+
+html.lear-cinema .lear-player-favorite {
+  display: grid !important;
+  width: 3em !important;
+  min-width: 44px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  place-items: center !important;
+  cursor: pointer !important;
+}
+
+html.lear-cinema .lear-player-favorite:hover,
+html.lear-cinema .lear-player-favorite:active,
+html.lear-cinema .lear-player-favorite:focus,
+html.lear-cinema .lear-player-favorite:focus-visible {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html.lear-cinema .lear-player-favorite .lear-heart-icon {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif;
+  font-size: 2.025rem;
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+  transform: translateY(0.02em);
+  transform-origin: center;
+  transition: color 150ms ease, transform 150ms ease;
+}
+
+html.lear-cinema .lear-player-favorite:hover .lear-heart-icon,
+html.lear-cinema .lear-player-favorite:focus-visible .lear-heart-icon {
+  transform: translateY(0.02em) scale(1.12);
+}
+
+html.lear-cinema .lear-player-favorite.is-favorite .lear-heart-icon {
+  color: #ff3f5f;
+}
+
+html.lear-cinema .lear-player-favorite:focus-visible {
+  outline: 2px solid #fff !important;
+  outline-offset: -3px !important;
+}
+
+html.lear-cinema .lear-player-favorite:disabled {
+  opacity: 0.55;
+  cursor: wait !important;
+}
+
+/* Watching library: favorite scenes first, then unfinished scenes. */
+html.lear-cinema.lear-page-watching .lear-watching-browser {
+  width: 100%;
+  min-width: 0;
+  padding-bottom: 48px;
+  grid-column: 1 / -1;
+}
+
+html.lear-cinema.lear-page-watching .lear-watching-native-grid {
+  display: none !important;
+}
+
+html.lear-cinema.lear-page-watching .lear-watching-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+html.lear-cinema.lear-page-watching .lear-watching-favorite {
+  position: absolute;
+  z-index: 11;
+  top: 9px;
+  right: 10px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #ff3f5f;
+  background: transparent;
+  box-shadow: none;
+  font-family: "Segoe UI Symbol", "Arial Unicode MS", sans-serif;
+  font-size: 1.725rem;
+  line-height: 1;
+  backdrop-filter: none;
+}
+
+html.lear-cinema.lear-page-watching .lear-watching-favorite > span {
+  display: block;
+  line-height: 1;
+  transform: translateY(0.06em);
+}
+
+html.lear-cinema.lear-page-watching .lear-watching-empty {
+  min-height: 240px;
+  padding: 64px 24px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+@media (max-width: 1350px) {
+  html.lear-cinema.lear-page-watching .lear-watching-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1050px) {
+  html.lear-cinema.lear-page-watching .lear-watching-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  html.lear-cinema.lear-page-watching .lear-watching-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
 /* The studio page already has a full header; remove Stash's duplicate sticky summary. */
 html.lear-cinema.lear-page-entity-detail.lear-page-studios
   .sticky.detail-header {
@@ -6288,5 +6718,751 @@ html.lear-cinema.lear-page-home .main .slick-next::before {
     .lear-performer-album-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 10px !important;
+  }
+}
+
+/* Shared hero layout: home and scene lists use the same DOM. */
+html.lear-cinema .lear-cinema-hero .lear-hero-content h1,
+html.lear-cinema .lear-cinema-hero .lear-hero-content h1 a {
+  background: transparent !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html.lear-cinema .lear-cinema-hero .lear-hero-content h1 {
+  line-height: 1.12 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+html.lear-cinema .lear-cinema-hero .lear-hero-content h1 a {
+  display: -webkit-box !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 2 !important;
+}
+
+html.lear-cinema .lear-cinema-hero .lear-hero-content p {
+  line-height: 1.55 !important;
+  display: -webkit-box !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 3 !important;
+}
+
+html.lear-cinema .lear-cinema-hero
+  .lear-hero-content
+  > .lear-hero-thumbnails {
+  position: static !important;
+  width: max-content !important;
+  margin-top: 0 !important;
+  inset: auto !important;
+}
+
+html.lear-cinema .lear-cinema-hero .lear-hero-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 24px !important;
+  top: auto !important;
+  bottom: 48px !important;
+}
+
+html.lear-cinema .lear-cinema-hero .lear-hero-content > * {
+  margin-block: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+/* Selection is indicated by the accent bar, without lifting a thumbnail. */
+html.lear-cinema .lear-cinema-hero .lear-hero-thumbnails button {
+  transform: none !important;
+}
+
+@media (min-width: 761px) and (max-height: 820px) {
+  html.lear-cinema.lear-page-home .recommendations-container > .lear-cinema-hero {
+    height: 640px !important;
+    min-height: 640px !important;
+  }
+
+}
+
+@media (max-width: 760px) {
+  html.lear-cinema .lear-cinema-hero
+    .lear-hero-content
+    > .lear-hero-thumbnails {
+    margin-top: 0 !important;
+    max-width: 100% !important;
+  }
+  html.lear-cinema .lear-cinema-hero .lear-hero-content {
+    bottom: 28px !important;
+  }
+  html.lear-cinema .lear-cinema-hero .lear-hero-thumbnails button {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+}
+
+/* 2026-09-25: settings task page density and scraper dialog repair. */
+html.lear-cinema.lear-page-settings #tasks-panel .tasks-panel-queue {
+  min-height: 0 !important;
+  padding: 18px 20px !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel .job-table.card {
+  box-sizing: border-box !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 12px 14px !important;
+}
+
+html.lear-cinema.lear-page-settings #tasks-panel .job-table li {
+  min-height: 48px !important;
+  padding: 4px 8px !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #tasks-panel
+  .setting-section
+  > .card {
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #tasks-panel
+  .setting-section
+  > .card
+  > .setting-group {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #tasks-panel
+  .setting-section
+  > .card
+  > .setting-group
+  + .setting-group {
+  border-top: 1px solid rgba(255, 255, 255, 0.065) !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #tasks-panel
+  .setting-section
+  > .card
+  .collapsible-section {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #tasks-panel
+  .setting-section
+  > .card
+  .setting {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  margin: 0 !important;
+  padding: 12px 18px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065) !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #tasks-panel
+  .setting-section
+  > .card
+  > :last-child
+  .setting:last-child,
+html.lear-cinema.lear-page-settings
+  #tasks-panel
+  .setting-section
+  > .card
+  > .setting:last-child {
+  border-bottom: 0 !important;
+}
+
+html.lear-cinema .ModalComponent .modal-dialog.modal-lg,
+html.lear-cinema .modal.show .modal-dialog.modal-lg {
+  width: min(1040px, calc(100vw - 40px)) !important;
+  max-width: 1040px !important;
+  margin: 5vh auto !important;
+}
+
+html.lear-cinema
+  .ModalComponent
+  .modal-body
+  .form-group.row:has(.react-select.tag-select) {
+  display: grid !important;
+  grid-template-columns: minmax(210px, 260px) minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 18px !important;
+  width: 100% !important;
+  margin: 8px 0 !important;
+  padding: 0 12px !important;
+}
+
+html.lear-cinema
+  .ModalComponent
+  .modal-body
+  .form-group.row:has(.react-select.tag-select)
+  > .form-label,
+html.lear-cinema
+  .ModalComponent
+  .modal-body
+  .form-group.row:has(.react-select.tag-select)
+  > .col-sm {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema
+  .ModalComponent
+  .modal-body
+  .form-group.row:has(.react-select.tag-select)
+  .react-select,
+html.lear-cinema
+  .ModalComponent
+  .modal-body
+  .form-group.row:has(.react-select.tag-select)
+  .react-select__control {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+html.lear-cinema
+  .ModalComponent
+  .modal-body
+  .form-group.row:has(.react-select.tag-select)
+  .react-select__control {
+  min-height: 46px !important;
+}
+
+html.lear-cinema
+  .ModalComponent
+  .modal-body
+  .form-group.row:has(.react-select.tag-select)
+  .react-select__input {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+html.lear-cinema .ModalComponent .ModalFooter.modal-footer {
+  width: 100% !important;
+  justify-content: initial !important;
+}
+
+html.lear-cinema .ModalComponent .ModalFooter.modal-footer > :first-child {
+  margin: 0 auto 0 0 !important;
+}
+
+html.lear-cinema .ModalComponent .ModalFooter.modal-footer > :last-child {
+  display: flex !important;
+  margin: 0 !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+
+@media (max-width: 760px) {
+  html.lear-cinema
+    .ModalComponent
+    .modal-body
+    .form-group.row:has(.react-select.tag-select) {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 0 !important;
+  }
+
+  html.lear-cinema .ModalComponent .ModalFooter.modal-footer {
+    align-items: stretch !important;
+    flex-direction: column !important;
+  }
+
+  html.lear-cinema .ModalComponent .ModalFooter.modal-footer > :first-child,
+  html.lear-cinema .ModalComponent .ModalFooter.modal-footer > :last-child {
+    width: 100% !important;
+  }
+}
+
+/* FINAL SETTINGS DENSITY CASCADE
+ * Keep this after all legacy settings rules so nested cards cannot restore
+ * the old 24px + 24px + row-padding stack. */
+
+/* Standalone scene tools were not assigned a theme route, so their native
+ * cards started at y=0 underneath the fixed cinema navigation. */
+html.lear-cinema.lear-page-tool .main.container-fluid {
+  box-sizing: border-box !important;
+  min-height: 100vh !important;
+  padding: 96px clamp(18px, 4vw, 56px) 64px !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser #parser-container {
+  box-sizing: border-box !important;
+  width: min(1180px, 100%) !important;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 28px 30px 30px !important;
+  overflow: visible !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 24px !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(140, 77, 255, 0.12), transparent 38%),
+    linear-gradient(145deg, rgba(23, 23, 30, 0.98), rgba(12, 12, 17, 0.98)) !important;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.32) !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser #parser-container > h4 {
+  margin: 0 0 24px !important;
+  font-size: clamp(26px, 2.2vw, 34px) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser #parser-container h5 {
+  margin: 24px 0 16px !important;
+  font-size: 18px !important;
+  font-weight: 750 !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  > .form-group {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  .row.form-group:not(:has(> .ml-3)) {
+  display: grid !important;
+  grid-template-columns: 180px minmax(0, 1fr) !important;
+  align-items: start !important;
+  gap: 6px 18px !important;
+  width: 100% !important;
+  margin: 0 0 18px !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  .row.form-group:not(:has(> .ml-3))
+  > :is(.form-label, .input-group, .form-text) {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: none !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  .row.form-group:not(:has(> .ml-3))
+  > .form-label {
+  align-self: center !important;
+  grid-column: 1 !important;
+  min-height: 46px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  .row.form-group:not(:has(> .ml-3))
+  > .input-group {
+  grid-column: 2 !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  .row.form-group:not(:has(> .ml-3))
+  > .form-text {
+  grid-column: 2 !important;
+  color: rgba(255, 255, 255, 0.58) !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  :is(.form-control, .input-group .btn) {
+  min-height: 46px !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  .form-control {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(0, 0, 0, 0.28) !important;
+  color: var(--lear-text) !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  .form-check {
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  min-height: 38px !important;
+  margin: 0 0 8px !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  .form-check-input {
+  position: static !important;
+  margin: 0 !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  .row.form-group:has(> .ml-3) {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 18px 0 0 !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  .row.form-group:has(> .ml-3)
+  > * {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  flex: 0 0 auto !important;
+}
+
+html.lear-cinema.lear-page-scene-filename-parser
+  #parser-container
+  .row.form-group:has(> .ml-3)
+  > select {
+  width: 110px !important;
+}
+
+/* Scraper dialog: the footer owns its own row and the scrolling body receives
+ * enough trailing space that the last control never sits underneath it. */
+html.lear-cinema
+  .ModalComponent:has(.scraper-sources)
+  .modal-dialog.modal-lg {
+  height: auto !important;
+  max-height: min(920px, calc(100dvh - 32px)) !important;
+  margin: 16px auto !important;
+}
+
+html.lear-cinema
+  .ModalComponent:has(.scraper-sources)
+  .modal-content {
+  height: auto !important;
+  max-height: min(920px, calc(100dvh - 32px)) !important;
+  overflow: hidden !important;
+}
+
+html.lear-cinema
+  .ModalComponent:has(.scraper-sources)
+  .modal-body {
+  min-height: 0 !important;
+  max-height: min(788px, calc(100dvh - 164px)) !important;
+  flex: 1 1 auto !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  scrollbar-gutter: stable !important;
+  padding: 18px 20px 36px !important;
+}
+
+html.lear-cinema
+  .ModalComponent:has(.scraper-sources)
+  .modal-footer {
+  position: relative !important;
+  z-index: 3 !important;
+  flex: 0 0 auto !important;
+  background: rgba(15, 15, 20, 0.98) !important;
+  box-shadow: 0 -16px 32px rgba(0, 0, 0, 0.28) !important;
+}
+
+html.lear-cinema
+  .ModalComponent:has(.scraper-sources)
+  .scraper-source-list
+  > .list-group-item {
+  min-height: 54px !important;
+  padding: 10px 14px !important;
+}
+
+html.lear-cinema
+  .ModalComponent:has(.scraper-sources)
+  .form-group:has(> label[for="performer-genders"]) {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 4px 14px !important;
+  padding: 14px 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.075) !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.025) !important;
+}
+
+html.lear-cinema
+  .ModalComponent:has(.scraper-sources)
+  .form-group:has(> label[for="performer-genders"])
+  > :is(label[for="performer-genders"], .form-text) {
+  grid-column: 1 / -1 !important;
+}
+
+html.lear-cinema
+  .ModalComponent:has(.scraper-sources)
+  .form-group:has(> label[for="performer-genders"])
+  > .form-check {
+  margin: 0 !important;
+}
+
+@media (max-width: 760px) {
+  html.lear-cinema.lear-page-tool .main.container-fluid {
+    padding: 82px 12px 32px !important;
+  }
+
+  html.lear-cinema.lear-page-scene-filename-parser #parser-container {
+    padding: 20px 16px 24px !important;
+    border-radius: 18px !important;
+  }
+
+  html.lear-cinema.lear-page-scene-filename-parser
+    #parser-container
+    .row.form-group:not(:has(> .ml-3)) {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+
+  html.lear-cinema.lear-page-scene-filename-parser
+    #parser-container
+    .row.form-group:not(:has(> .ml-3))
+    > :is(.form-label, .input-group, .form-text) {
+    grid-column: 1 !important;
+  }
+
+  html.lear-cinema
+    .ModalComponent:has(.scraper-sources)
+    .form-group:has(> label[for="performer-genders"]) {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  > .setting,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .setting-group
+  > .setting,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .collapsible-section
+  > .setting {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  margin: 0 !important;
+  padding: 10px 18px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065) !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .setting-group,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .collapsible-section {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card:has(.setting-group)
+  .collapsible-section
+  > .setting {
+  padding-left: 30px !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-library
+  .setting-section:has(#delete-file-default)
+  > .card,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .setting-section
+  > .card,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-tools
+  .setting-section
+  > .card {
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card
+  > .setting-group,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-library
+  .setting-section:has(#delete-file-default)
+  .setting,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card
+  .setting,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-tools
+  .setting-section
+  > .card
+  .setting {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  margin: 0 !important;
+  padding: 10px 18px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065) !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card
+  > .setting-group
+  > .setting:not(:first-child) {
+  padding-left: 30px !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-library
+  .setting-section:has(#delete-file-default)
+  > .card
+  > .setting:last-child,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card
+  > .setting:last-child,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-interface
+  .setting-section
+  > .card
+  > .setting-group:last-child
+  > .setting:last-child,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-tools
+  .setting-section
+  > .card
+  > .setting:last-child {
+  border-bottom: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager-toolbar {
+  box-sizing: border-box !important;
+  min-height: 60px !important;
+  padding: 10px 16px !important;
+  gap: 8px !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager-table-container
+  th,
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager-table-container
+  td {
+  padding: 10px 14px !important;
+  vertical-align: middle !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager-table-container
+  tr:has(> .border-row),
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager-table-container
+  .border-row {
+  height: 1px !important;
+  min-height: 1px !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+}
+
+html.lear-cinema.lear-page-settings
+  #configuration-tabs-tabpane-plugins
+  .package-manager-no-results
+  td {
+  height: 42px !important;
+  padding-block: 8px !important;
+}
+
+@media (max-width: 760px) {
+  html.lear-cinema.lear-page-settings
+    #configuration-tabs-tabpane-library
+    .setting-section:has(#delete-file-default)
+    .setting,
+  html.lear-cinema.lear-page-settings
+    #configuration-tabs-tabpane-interface
+    .setting-section
+    > .card
+    .setting,
+  html.lear-cinema.lear-page-settings
+    #configuration-tabs-tabpane-tools
+    .setting-section
+    > .card
+    .setting {
+    padding: 10px 14px !important;
+  }
+
+  html.lear-cinema.lear-page-settings
+    #configuration-tabs-tabpane-interface
+    .setting-section
+    > .card
+    > .setting-group
+    > .setting:not(:first-child) {
+    padding-left: 20px !important;
+  }
+
+  html.lear-cinema.lear-page-settings
+    #configuration-tabs-tabpane-plugins
+    .package-manager-toolbar {
+    padding-inline: 12px !important;
   }
 }
